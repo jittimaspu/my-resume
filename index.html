@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jittima Oparp — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#12242B;
+    --teal:#5FA79A;
+    --teal-deep:#3D7E73;
+    --teal-pale:#DCEEE9;
+    --paper:#F6F4EF;
+    --ink:#1B2523;
+    --ink-soft:#4A5654;
+    --line:#D8DED9;
+    --white:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Sarabun',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  h1,h2,h3,.disp{
+    font-family:'Space Grotesk','Sarabun',sans-serif;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 6vw;
+    background:rgba(246,244,239,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-name{font-weight:700;font-size:1.05rem;letter-spacing:0.02em;}
+  .nav-links{display:flex;gap:28px;font-size:0.92rem;font-weight:500;}
+  .nav-links a{opacity:0.75;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    align-items:stretch;
+    min-height:92vh;
+    background:var(--navy);
+    color:var(--paper);
+    overflow:hidden;
+  }
+  .hero-left{
+    padding:8vh 6vw;
+    display:flex;flex-direction:column;justify-content:center;
+    position:relative;
+  }
+  .hero-kicker{
+    color:var(--teal);
+    font-size:0.95rem;
+    font-weight:600;
+    margin-bottom:18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .hero-kicker::before{
+    content:"";width:26px;height:2px;background:var(--teal);display:inline-block;
+  }
+  .hero-title{
+    font-size:clamp(2.6rem,6vw,4.6rem);
+    font-weight:700;
+    line-height:1.05;
+    letter-spacing:-0.01em;
+  }
+  .hero-title .nick{color:var(--teal);}
+  .hero-role{
+    margin-top:22px;
+    font-size:clamp(1.1rem,2vw,1.5rem);
+    color:#CFE3DE;
+    font-weight:400;
+    max-width:640px;
+  }
+  .hero-role strong{color:var(--white);font-weight:600;}
+  .hero-tags{
+    margin-top:32px;
+    display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .hero-tag{
+    border:1px solid rgba(255,255,255,0.25);
+    color:#E4EFEC;
+    padding:7px 16px;
+    border-radius:999px;
+    font-size:0.85rem;
+  }
+  .hero-cta{
+    margin-top:42px;
+    display:flex;gap:16px;flex-wrap:wrap;
+  }
+  .btn{
+    padding:13px 26px;
+    font-size:0.92rem;
+    font-weight:600;
+    border-radius:6px;
+    cursor:pointer;
+    transition:transform .15s ease, background .2s ease;
+  }
+  .btn-primary{
+    background:var(--teal);
+    color:var(--navy);
+    border:1px solid var(--teal);
+  }
+  .btn-primary:hover{background:#78C0B1;transform:translateY(-2px);}
+  .btn-ghost{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.35);
+    color:var(--paper);
+  }
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px);}
+
+  .hero-right{
+    position:relative;
+    background:linear-gradient(180deg,#1B3038,#0D1A1F);
+    display:flex;align-items:flex-end;justify-content:center;
+  }
+  .hero-photo-wrap{
+    position:relative;
+    width:100%;height:100%;
+    display:flex;align-items:flex-end;justify-content:center;
+  }
+  .hero-photo{
+    width:78%;
+    max-width:420px;
+    border-radius:14px 14px 0 0;
+    object-fit:cover;
+    object-position:top;
+    height:82%;
+    box-shadow:0 30px 60px rgba(0,0,0,0.4);
+  }
+  .hero-stats{
+    position:absolute;
+    left:6%;bottom:6%;
+    background:rgba(18,36,43,0.9);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:10px;
+    padding:16px 20px;
+    backdrop-filter:blur(6px);
+  }
+  .hero-stats .num{font-size:1.6rem;font-weight:700;color:var(--teal);font-family:'Space Grotesk';}
+  .hero-stats .lbl{font-size:0.78rem;color:#CFE3DE;margin-top:2px;}
+
+  /* ---------- SECTION shell ---------- */
+  section{padding:9vh 6vw;}
+  .section-head{
+    display:flex;align-items:baseline;gap:18px;
+    margin-bottom:48px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:20px;
+  }
+  .section-index{
+    font-family:'Space Grotesk';
+    color:var(--teal-deep);
+    font-weight:600;
+    font-size:0.95rem;
+  }
+  .section-title{
+    font-size:clamp(1.6rem,3vw,2.2rem);
+    font-weight:700;
+  }
+  .section-sub{
+    color:var(--ink-soft);
+    font-size:0.98rem;
+    margin-top:-32px;
+    margin-bottom:44px;
+    max-width:600px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    background:var(--white);
+  }
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;
+  }
+  .about-text p{
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+  }
+  .fit-box{
+    background:var(--teal-pale);
+    border-radius:12px;
+    padding:28px 30px;
+  }
+  .fit-box h3{font-size:1.1rem;margin-bottom:14px;color:var(--teal-deep);}
+  .fit-list{list-style:none;}
+  .fit-list li{
+    padding:10px 0;
+    border-bottom:1px dashed rgba(61,126,115,0.3);
+    font-size:0.96rem;
+    display:flex;gap:10px;
+  }
+  .fit-list li:last-child{border-bottom:none;}
+  .fit-list li::before{content:"✓";color:var(--teal-deep);font-weight:700;}
+
+  /* ---------- SKILLS ---------- */
+  .skills{background:var(--paper);}
+  .skills-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .skill-card{
+    background:var(--white);
+    padding:30px 28px;
+  }
+  .skill-card h3{
+    font-size:1.02rem;
+    margin-bottom:14px;
+    color:var(--navy);
+    display:flex;align-items:center;gap:10px;
+  }
+  .skill-card h3 .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);}
+  .skill-card ul{list-style:none;font-size:0.92rem;color:var(--ink-soft);}
+  .skill-card li{padding:5px 0;}
+
+  .tool-bars{margin-top:56px;}
+  .tool-row{
+    display:grid;grid-template-columns:160px 1fr;
+    align-items:center;
+    gap:20px;
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .tool-row .tname{font-weight:600;font-size:0.94rem;}
+  .bar-track{height:6px;background:var(--line);border-radius:4px;overflow:hidden;}
+  .bar-fill{height:100%;background:var(--teal);border-radius:4px;}
+
+  /* ---------- PORTFOLIO ---------- */
+  .portfolio{background:var(--navy);color:var(--paper);}
+  .portfolio .section-title, .portfolio .section-index{color:var(--paper);}
+  .portfolio .section-head{border-color:rgba(255,255,255,0.15);}
+  .portfolio .section-sub{color:#B9CBC6;}
+  .proj-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:28px;
+  }
+  .proj-card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:14px;
+    overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .proj-card:hover{border-color:var(--teal);transform:translateY(-4px);}
+  .proj-cover{
+    width:100%;
+    aspect-ratio:16/8;
+    object-fit:cover;
+    display:block;
+    background:linear-gradient(135deg,#1E3A34,#0E1E22);
+  }
+  .proj-cover.placeholder{
+    display:flex;align-items:center;justify-content:center;
+    color:#5C7B73;font-size:0.8rem;font-family:'Space Grotesk';
+    text-align:center;padding:14px;
+  }
+  .proj-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column;}
+  .proj-card .ptag{
+    display:inline-block;
+    font-size:0.7rem;color:var(--teal);font-weight:700;letter-spacing:0.04em;
+    padding:0;
+    width:fit-content;
+    margin-bottom:10px;
+  }
+  .proj-card h4{font-size:1.1rem;margin-bottom:6px;line-height:1.3;}
+  .proj-card .psub{font-size:0.84rem;color:#9FB8B2;margin-bottom:16px;line-height:1.5;}
+  .ps-box{
+    padding:0 0 12px 0;
+    font-size:0.82rem;
+    color:#B9CBC6;
+    margin-bottom:12px;
+    line-height:1.55;
+    border-bottom:1px solid rgba(255,255,255,0.07);
+  }
+  .ps-box:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .ps-box b{color:var(--paper);font-weight:600;display:block;margin-bottom:4px;font-size:0.82rem;}
+  .ps-box .tag-icon{margin-right:6px;}
+  .proj-techs{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .tech-chip{
+    font-size:0.72rem;color:#9FB8B2;
+    padding:3px 0;
+  }
+  .tech-chip:not(:last-child)::after{content:"·";margin-left:8px;color:#4A605A;}
+  .proj-footer{
+    margin-top:16px;padding-top:14px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    font-size:0.72rem;color:#6B837C;
+    text-align:center;
+  }
+  .proj-card.empty{
+    border-style:dashed;
+    align-items:center;justify-content:center;text-align:center;
+    color:#8FA6A0;
+    padding:40px 24px;
+    min-height:220px;
+  }
+  .proj-card.empty span{font-size:1.6rem;display:block;margin-bottom:8px;}
+
+
+  /* ---------- EDUCATION / TIMELINE ---------- */
+  .edu{background:var(--white);}
+  .edu-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+  .edu-card{
+    border-left:3px solid var(--teal);
+    padding:6px 0 6px 26px;
+  }
+  .edu-card .deg{font-weight:700;font-size:1.15rem;}
+  .edu-card .school{color:var(--teal-deep);font-weight:600;margin-top:4px;}
+  .edu-card .meta{color:var(--ink-soft);font-size:0.92rem;margin-top:10px;}
+  .gpa-badge{
+    display:inline-block;margin-top:14px;
+    background:var(--teal-pale);color:var(--teal-deep);
+    font-weight:700;padding:6px 14px;border-radius:6px;font-size:0.9rem;
+  }
+  .lang-box h3{margin-bottom:18px;font-size:1.05rem;}
+  .lang-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:0.94rem;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--teal-pale);}
+  .contact-wrap{
+    display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;
+  }
+  .contact h2{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:700;color:var(--navy);}
+  .contact p{color:var(--ink-soft);margin-top:16px;max-width:480px;}
+  .contact-list{margin-top:30px;}
+  .contact-list div{
+    display:flex;gap:14px;padding:12px 0;border-bottom:1px solid rgba(61,126,115,0.25);
+    font-size:0.96rem;
+  }
+  .contact-list .k{width:90px;color:var(--teal-deep);font-weight:600;}
+  .contact-card{
+    background:var(--navy);color:var(--paper);
+    border-radius:14px;padding:40px 34px;
+  }
+  .contact-card h3{font-size:1.2rem;margin-bottom:8px;}
+  .contact-card p{color:#B9CBC6;font-size:0.9rem;margin-bottom:24px;}
+  .contact-card .btn-primary{width:100%;text-align:center;}
+
+  footer{
+    text-align:center;padding:26px;color:var(--ink-soft);font-size:0.82rem;
+    background:var(--paper);border-top:1px solid var(--line);
+  }
+
+  /* ---------- MODAL: เพิ่มผลงาน ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;
+    background:rgba(10,18,20,0.7);
+    display:none;
+    align-items:center;justify-content:center;
+    padding:24px;
+    z-index:200;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    background:var(--navy);
+    color:var(--paper);
+    width:100%;max-width:560px;
+    max-height:88vh;overflow-y:auto;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.12);
+    padding:32px 30px;
+  }
+  .modal-box h3{font-size:1.3rem;margin-bottom:4px;}
+  .modal-box .modal-sub{font-size:0.85rem;color:#9FB8B2;margin-bottom:24px;}
+  .field{margin-bottom:16px;}
+  .field label{
+    display:block;font-size:0.82rem;color:#C4D6D1;margin-bottom:6px;font-weight:600;
+  }
+  .field input[type="text"],
+  .field textarea{
+    width:100%;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15);
+    color:var(--paper);
+    border-radius:8px;
+    padding:10px 12px;
+    font-family:'Sarabun',sans-serif;
+    font-size:0.9rem;
+    resize:vertical;
+  }
+  .field input[type="text"]:focus,
+  .field textarea:focus{outline:none;border-color:var(--teal);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .field input[type="file"]{
+    font-size:0.82rem;color:#C4D6D1;
+  }
+  .modal-actions{
+    display:flex;gap:12px;margin-top:24px;
+  }
+  .btn-secondary{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.25);
+    color:var(--paper);
+  }
+  .btn-secondary:hover{border-color:var(--teal);color:var(--teal);}
+  .modal-close{
+    position:absolute;top:18px;right:20px;
+    background:none;border:none;color:#9FB8B2;font-size:1.3rem;cursor:pointer;
+  }
+  .modal-box{position:relative;}
+
+
+  .proj-admin-actions{display:flex;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);}
+  .proj-admin-actions button{flex:1;padding:8px 10px;border-radius:7px;border:1px solid rgba(255,255,255,0.18);background:transparent;color:var(--paper);cursor:pointer;font-family:'Sarabun',sans-serif;}
+  .proj-admin-actions button:hover{border-color:var(--teal);color:var(--teal);}
+  .proj-admin-actions .delete-project:hover{border-color:#E68A6C;color:#E68A6C;}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;}
+    .hero-right{height:50vh;order:-1;}
+    .hero-left{padding:6vh 6vw;}
+    .about-grid,.edu-wrap,.contact-wrap{grid-template-columns:1fr;}
+    .skills-grid,.proj-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- OWNER MODE ---------- */
+  #addProjectBtn,
+  .proj-admin-actions{
+    display:none !important;
+  }
+
+  body.owner-mode #addProjectBtn{
+    display:flex !important;
+  }
+
+  body.owner-mode .proj-admin-actions{
+    display:flex !important;
+  }
+
+  .owner-badge{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:300;
+    background:var(--teal);
+    color:var(--navy);
+    border-radius:999px;
+    padding:8px 14px;
+    font-size:0.78rem;
+    font-weight:700;
+    box-shadow:0 8px 24px rgba(0,0,0,.18);
+    display:none;
+  }
+
+  body.owner-mode .owner-badge{
+    display:block;
+  }
+
+
+  /* Visitor-safe admin controls */
+  body:not(.owner-mode) #addProjectBtn,
+  body:not(.owner-mode) .proj-admin-actions,
+  body:not(.owner-mode) .owner-badge{
+    display:none !important;
+  }
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-name">Jittima Oparp</div>
+  <div class="nav-links">
+    <a href="#about">เกี่ยวกับฉัน</a>
+    <a href="#skills">ทักษะ</a>
+    <a href="#portfolio">ผลงาน</a>
+    <a href="#education">การศึกษา</a>
+    <a href="#contact">ติดต่อ</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding:0;">
+  <div class="hero-left">
+    <div class="hero-kicker">SOFTWARE & DATA DEVELOPER</div>
+    <h1 class="hero-title">Jittima<br>Oparp <span class="nick">"Mint"</span></h1>
+    <p class="hero-role">
+      นักศึกษาปีสุดท้าย สาขา<strong>วิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์</strong>
+      ถนัดพัฒนา <strong>Web Application แบบ Full-stack</strong> ต่อยอดด้วย
+      <strong>Data Science</strong> และ <strong>Automation</strong> เพื่อแก้ปัญหาให้ตรงจุดและใช้งานได้จริง
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">React / Node.js</span>
+      <span class="hero-tag">Python</span>
+      <span class="hero-tag">C#</span>
+      <span class="hero-tag">MongoDB / MySQL</span>
+      <span class="hero-tag">Data Science</span>
+      <span class="hero-tag">N8N Automation</span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#portfolio">ดูผลงาน</a>
+      <a class="btn btn-ghost" href="#contact">ติดต่อฉัน</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#2A4952,#12242B);color:#7FA79A;font-family:'Space Grotesk';font-size:0.95rem;text-align:center;padding:20px;">
+        แทนที่ตรงนี้ด้วยรูปภาพของคุณ<br>(แก้ไข src ของ &lt;img&gt; ในโค้ด)
+      </div>
+      <div class="hero-stats">
+        <div class="num">3.55</div>
+        <div class="lbl">เกรดเฉลี่ยสะสม (GPA)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-head">
+    <span class="section-index">01</span>
+    <h2 class="section-title">เกี่ยวกับฉัน</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        ฉันชื่นชอบการเรียนรู้สิ่งใหม่ ๆ ตลอดเวลา ชอบสำรวจไอเดียและลงมือแปลงมันให้กลายเป็นสิ่งที่ใช้งานได้จริง
+        การได้ลงมือทำโปรเจกต์และแลกเปลี่ยนความคิดกับผู้อื่นคือสิ่งที่ผลักดันให้ฉันพัฒนาตัวเองอยู่เสมอ
+      </p>
+      <p>
+        ทุกประสบการณ์ใหม่ช่วยให้ฉันเติบโต เรียนรู้ และมั่นใจในสิ่งที่ทำมากขึ้น — ทั้งในฐานะนักพัฒนาเว็บไซต์
+        และผู้ที่สนใจด้าน Data และระบบอัตโนมัติ
+      </p>
+    </div>
+    <div class="fit-box">
+      <h3>เหมาะกับงานแบบไหน</h3>
+      <ul class="fit-list">
+        <li>Frontend / Full-stack Developer (React, Node.js, C#)</li>
+        <li>Junior Data Analyst / Data Science</li>
+        <li>Automation & Workflow Developer (N8N, API)</li>
+        <li>สายงานที่ต้องเรียนรู้เร็ว ปรับตัวไว และทำงานเป็นทีม</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="section-head">
+    <span class="section-index">02</span>
+    <h2 class="section-title">Technical Skills & Expertise</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3><span class="dot"></span>Programming</h3>
+      <ul>
+        <li>HTML / CSS / JavaScript</li>
+        <li>Python</li>
+        <li>C#</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h3><span class="dot"></span>Web Development</h3>
+      <ul>
+        <li>UI/UX & Responsive Design</li>
+        <li>React, Node.js</li>
+        <li>Web Application (C#)</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h3><span class="dot"></span>Backend & API</h3>
+      <ul>
+        <li>RESTful API Design</li>
+        <li>JWT Authentication</li>
+        <li>Database Design & Optimization</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h3><span class="dot"></span>Database</h3>
+      <ul>
+        <li>MongoDB</li>
+        <li>MySQL</li>
+        <li>Complex Queries</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h3><span class="dot"></span>Data Science & AI</h3>
+      <ul>
+        <li>Data Analysis & Cleaning</li>
+        <li>Data Visualization</li>
+        <li>Machine Learning (Basic) / AI Model</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h3><span class="dot"></span>Tools & Automation</h3>
+      <ul>
+        <li>Git / GitHub</li>
+        <li>N8N Automation</li>
+        <li>Postman / Figma / Notion</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tool-bars">
+    <div class="tool-row"><div class="tname">Coding</div><div class="bar-track"><div class="bar-fill" style="width:80%;"></div></div></div>
+    <div class="tool-row"><div class="tname">Microsoft Office</div><div class="bar-track"><div class="bar-fill" style="width:60%;"></div></div></div>
+    <div class="tool-row"><div class="tname">Postman</div><div class="bar-track"><div class="bar-fill" style="width:60%;"></div></div></div>
+    <div class="tool-row"><div class="tname">Figma</div><div class="bar-track"><div class="bar-fill" style="width:60%;"></div></div></div>
+    <div class="tool-row"><div class="tname">Notion</div><div class="bar-track"><div class="bar-fill" style="width:40%;"></div></div></div>
+    <div class="tool-row"><div class="tname">CapCut</div><div class="bar-track"><div class="bar-fill" style="width:40%;"></div></div></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="section-head">
+    <span class="section-index">03</span>
+    <h2 class="section-title">ผลงาน / Portfolio</h2>
+  </div>
+  <p class="section-sub">ตัวอย่างพื้นที่แสดงผลงาน — แก้ไขการ์ดด้านล่างให้เป็นโปรเจกต์จริงของคุณ (ชื่อ, เทคโนโลยีที่ใช้, และลิงก์ผลงาน)</p>
+  <div class="proj-grid" id="projGrid">
+
+    <!-- โปรเจกต์ 1: แก้ src รูปปกด้านล่างเป็นรูปโปรเจกต์จริงของคุณ -->
+    <div class="proj-card">
+      <img class="proj-cover" src="" alt="ปกโปรเจกต์ 1" onerror="this.outerHTML='&lt;div class=&quot;proj-cover placeholder&quot;&gt;ใส่รูปปก / สกรีนช็อตโปรเจกต์ที่นี่&lt;/div&gt;'">
+      <div class="proj-body">
+        <div class="ptag">FULLSTACK</div>
+        <h4>ชื่อโปรเจกต์ที่ 1</h4>
+        <p class="psub">คำโปรยสั้น ๆ หนึ่งบรรทัดว่าโปรเจกต์นี้ทำอะไร เพื่อใคร</p>
+
+        <div class="ps-box problem">
+          <b><span class="tag-icon">✦</span>เริ่มต้นจากอะไร</b><br>
+          อธิบายปัญหาที่โปรเจกต์นี้ต้องการแก้ไข เช่น ผู้ใช้เจอปัญหาอะไร ทำไมถึงต้องมีระบบนี้
+        </div>
+        <div class="ps-box solution">
+          <b><span class="tag-icon">→</span>ลงมือทำยังไง</b><br>
+          อธิบายวิธีที่คุณออกแบบและพัฒนาระบบเพื่อแก้ปัญหานั้น ใช้เทคโนโลยีหรือแนวคิดอะไรบ้าง
+        </div>
+
+        <div class="proj-techs">
+          <span class="tech-chip">React</span>
+          <span class="tech-chip">Node.js</span>
+          <span class="tech-chip">Express</span>
+          <span class="tech-chip">REST API</span>
+          <span class="tech-chip">MongoDB</span>
+        </div>
+
+        <div class="proj-footer">🔒 ผลงานส่วนตัว / เผยแพร่เพื่อการศึกษา</div>
+      </div>
+    </div>
+
+    <!-- โปรเจกต์ 2 -->
+    <div class="proj-card">
+      <img class="proj-cover" src="" alt="ปกโปรเจกต์ 2" onerror="this.outerHTML='&lt;div class=&quot;proj-cover placeholder&quot;&gt;ใส่รูปปก / สกรีนช็อตโปรเจกต์ที่นี่&lt;/div&gt;'">
+      <div class="proj-body">
+        <div class="ptag">DATA SCIENCE</div>
+        <h4>ชื่อโปรเจกต์ที่ 2</h4>
+        <p class="psub">คำโปรยสั้น ๆ หนึ่งบรรทัดว่าโปรเจกต์นี้ทำอะไร เพื่อใคร</p>
+
+        <div class="ps-box problem">
+          <b><span class="tag-icon">✦</span>เริ่มต้นจากอะไร</b><br>
+          อธิบายปัญหาด้านข้อมูลที่ต้องการแก้ไข เช่น ข้อมูลกระจัดกระจาย วิเคราะห์ยาก ตัดสินใจช้า
+        </div>
+        <div class="ps-box solution">
+          <b><span class="tag-icon">→</span>ลงมือทำยังไง</b><br>
+          อธิบายขั้นตอนการทำความสะอาดข้อมูล วิเคราะห์ และสร้าง Dashboard/โมเดลเพื่อช่วยตัดสินใจ
+        </div>
+
+        <div class="proj-techs">
+          <span class="tech-chip">Python</span>
+          <span class="tech-chip">Pandas</span>
+          <span class="tech-chip">Data Visualization</span>
+          <span class="tech-chip">Machine Learning</span>
+        </div>
+
+        <div class="proj-footer">🔒 ผลงานส่วนตัว / เผยแพร่เพื่อการศึกษา</div>
+      </div>
+    </div>
+
+    <div class="proj-card empty" id="addProjectBtn" role="button" tabindex="0">
+      <span>+</span>
+      เพิ่มผลงานของคุณ<br>(คลิกเพื่อกรอกข้อมูล)
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="edu" id="education">
+  <div class="section-head">
+    <span class="section-index">04</span>
+    <h2 class="section-title">การศึกษา</h2>
+  </div>
+  <div class="edu-wrap">
+    <div class="edu-card">
+      <div class="deg">คณะเทคโนโลยีสารสนเทศ</div>
+      <div class="school">มหาวิทยาลัยศรีปทุม</div>
+      <div class="meta">สาขาวิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์<br>กำลังศึกษาระดับปริญญาตรี</div>
+      <div class="gpa-badge">GPA 3.55</div>
+    </div>
+    <div class="lang-box">
+      <h3>ข้อมูลส่วนตัว</h3>
+      <div class="lang-row"><span>ชื่อเล่น</span><span>Mint</span></div>
+      <div class="lang-row"><span>อายุ</span><span>21 ปี</span></div>
+      <div class="lang-row"><span>สถานะ</span><span>นักศึกษาปีสุดท้าย</span></div>
+      <div class="lang-row" style="border-bottom:none;"><span>เป้าหมาย</span><span>Developer / Data</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-wrap">
+    <div>
+      <h2>มาคุยงานกัน</h2>
+      <p>สนใจร่วมงาน ฝึกงาน หรืออยากพูดคุยเกี่ยวกับโปรเจกต์ ติดต่อฉันได้ตามช่องทางด้านล่างนี้เลย</p>
+      <div class="contact-list">
+        <div><span class="k">ที่อยู่</span><span>2106 บ้านสมบูรณ์ ซอย 4 พหลโยธิน 53 กรุงเทพฯ</span></div>
+        <div><span class="k">โทร</span><span>080-541-6853</span></div>
+        <div><span class="k">Email</span><span>jittima.opa27@gmail.com</span></div>
+        <div><span class="k">Facebook</span><span>Jittima oparp</span></div>
+        <div><span class="k">Line</span><span>0805416853</span></div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>พร้อมพูดคุยเสมอ</h3>
+      <p>ตอบกลับอีเมลและข้อความภายใน 24 ชั่วโมง</p>
+      <a class="btn btn-primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=jittima.opa27%40gmail.com&su=%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B9%80%E0%B8%A7%E0%B9%87%E0%B8%9A%E0%B9%84%E0%B8%8B%E0%B8%95%E0%B9%8C%20Portfolio" target="_blank" rel="noopener noreferrer">ส่งอีเมลถึงฉัน</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Jittima Oparp — Resume Website</footer>
+
+<!-- MODAL: กรอกรหัสผ่านเจ้าของเว็บ -->
+<div class="modal-overlay" id="pwOverlay">
+  <div class="modal-box" style="max-width:380px;text-align:center;">
+    <button class="modal-close" id="pwClose" aria-label="ปิด">✕</button>
+    <div style="width:52px;height:52px;border-radius:50%;background:rgba(95,167,154,0.12);border:1px solid rgba(95,167,154,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.4rem;">🔒</div>
+    <h3 style="margin-bottom:6px;">สำหรับเจ้าของเว็บ</h3>
+    <p class="modal-sub" style="margin-bottom:22px;">กรอกรหัสผ่านเพื่อเพิ่มผลงานใหม่</p>
+    <form id="pwForm">
+      <div class="field" style="text-align:left;">
+        <input type="password" id="pwInput" placeholder="รหัสผ่าน" autocomplete="off"
+          style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:var(--paper);border-radius:8px;padding:12px 14px;font-size:0.95rem;letter-spacing:0.05em;">
+      </div>
+      <p id="pwError" style="display:none;color:#E68A6C;font-size:0.82rem;margin-top:-8px;margin-bottom:14px;text-align:left;">รหัสผ่านไม่ถูกต้อง ลองอีกครั้ง</p>
+      <div class="modal-actions" style="margin-top:18px;">
+        <button type="button" class="btn btn-secondary" id="pwCancel" style="flex:1;">ยกเลิก</button>
+        <button type="submit" class="btn btn-primary" style="flex:1;">ปลดล็อก</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: เพิ่มผลงาน -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="ปิด">✕</button>
+    <h3>เพิ่มผลงานใหม่</h3>
+    <p class="modal-sub">กรอกข้อมูลโปรเจกต์ของคุณ แล้วการ์ดจะถูกสร้างขึ้นทันที</p>
+
+    <form id="projectForm">
+      <input type="hidden" id="pId">
+      <div class="field-row">
+        <div class="field">
+          <label>หมวดหมู่ (เช่น FULLSTACK)</label>
+          <input type="text" id="pTag" placeholder="FULLSTACK">
+        </div>
+        <div class="field">
+          <label>รูปปกโปรเจกต์</label>
+          <input type="file" id="pCover" accept="image/*">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>ชื่อโปรเจกต์</label>
+        <input type="text" id="pTitle" placeholder="เช่น ระบบจัดการงาน..." required>
+      </div>
+
+      <div class="field">
+        <label>คำโปรยสั้น ๆ</label>
+        <input type="text" id="pSub" placeholder="โปรเจกต์นี้ทำอะไร เพื่อใคร">
+      </div>
+
+      <div class="field">
+        <label>เริ่มต้นจากอะไร</label>
+        <textarea id="pProblem" rows="2" placeholder="ปัญหาที่ต้องการแก้ไข"></textarea>
+      </div>
+
+      <div class="field">
+        <label>ลงมือทำยังไง</label>
+        <textarea id="pSolution" rows="2" placeholder="แนวทางและวิธีที่พัฒนา"></textarea>
+      </div>
+
+      <div class="field">
+        <label>เทคโนโลยีที่ใช้ (คั่นด้วยจุลภาค)</label>
+        <input type="text" id="pTech" placeholder="React, Node.js, MongoDB">
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="modalCancel">ยกเลิก</button>
+        <button type="submit" class="btn btn-primary" style="flex:1;">เพิ่มผลงาน</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+const overlay=document.getElementById('modalOverlay'); const openBtn=document.getElementById('addProjectBtn'); const closeBtn=document.getElementById('modalClose'); const cancelBtn=document.getElementById('modalCancel'); const form=document.getElementById('projectForm'); const grid=document.getElementById('projGrid'); const coverInput=document.getElementById('pCover');
+const EDIT_PASSWORD='mint2569'; const STORAGE_KEY='resumeProjectsV2';
+const pwOverlay=document.getElementById('pwOverlay'); const pwForm=document.getElementById('pwForm'); const pwInput=document.getElementById('pwInput'); const pwError=document.getElementById('pwError'); const pwClose=document.getElementById('pwClose'); const pwCancel=document.getElementById('pwCancel');
+let projects=[]; let pendingAction=null;
+function isUnlocked(){return document.body.classList.contains('owner-mode');}
+function openPwModal(action=null){pendingAction=action;pwError.style.display='none';pwInput.value='';pwOverlay.classList.add('open');setTimeout(()=>pwInput.focus(),50);}
+function closePwModal(){pwOverlay.classList.remove('open');pendingAction=null;}
+pwClose.addEventListener('click',closePwModal); pwCancel.addEventListener('click',closePwModal); pwOverlay.addEventListener('click',e=>{if(e.target===pwOverlay)closePwModal();});
+pwForm.addEventListener('submit',e=>{e.preventDefault();if(pwInput.value===EDIT_PASSWORD){enableOwnerMode();pwOverlay.classList.remove('open');const a=pendingAction;pendingAction=null;typeof a==='function'?a():openProjectModal();}else{pwError.style.display='block';pwInput.value='';pwInput.focus();}});
+function requireUnlock(action){isUnlocked()?action():openPwModal(action);}
+
+// ---- Hidden owner access: click site name 5 times ----
+function enableOwnerMode(){
+  document.body.classList.add('owner-mode');
+}
+function disableOwnerMode(){
+  document.body.classList.remove('owner-mode');
+}
+
+const ownerTrigger=document.querySelector('.nav-name');
+let ownerClickCount=0;
+let ownerClickTimer=null;
+
+if(ownerTrigger){
+  ownerTrigger.addEventListener('click',()=>{
+    ownerClickCount++;
+    clearTimeout(ownerClickTimer);
+    ownerClickTimer=setTimeout(()=>ownerClickCount=0,3000);
+
+    if(ownerClickCount>=5){
+      ownerClickCount=0;
+      clearTimeout(ownerClickTimer);
+
+      if(document.body.classList.contains('owner-mode')){
+        disableOwnerMode();
+      }else{
+        openPwModal(()=>enableOwnerMode());
+      }
+    }
+  });
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape' && document.body.classList.contains('owner-mode')){
+    if(!overlay.classList.contains('open') && !pwOverlay.classList.contains('open')){
+      disableOwnerMode();
+    }
+  }
+});
+
+function escapeHtml(str=''){const d=document.createElement('div');d.textContent=str;return d.innerHTML;}
+function loadProjects(){try{projects=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');if(!Array.isArray(projects))projects=[];}catch{projects=[];}}
+function saveProjects(){localStorage.setItem(STORAGE_KEY,JSON.stringify(projects));}
+function buildCard(data){const card=document.createElement('div');card.className='proj-card';card.dataset.projectId=data.id;const cover=data.coverSrc?`<img class="proj-cover" src="${data.coverSrc}" alt="ปกโปรเจกต์">`:`<div class="proj-cover placeholder">ไม่มีรูปปก</div>`;const tech=(data.tech||'').split(',').map(t=>t.trim()).filter(Boolean).map(t=>`<span class="tech-chip">${escapeHtml(t)}</span>`).join('');card.innerHTML=`${cover}<div class="proj-body"><div class="ptag">${escapeHtml(data.tag||'PROJECT')}</div><h4>${escapeHtml(data.title||'')}</h4>${data.sub?`<p class="psub">${escapeHtml(data.sub)}</p>`:''}${data.problem?`<div class="ps-box"><b><span class="tag-icon">✦</span>เริ่มต้นจากอะไร</b>${escapeHtml(data.problem)}</div>`:''}${data.solution?`<div class="ps-box"><b><span class="tag-icon">→</span>ลงมือทำยังไง</b>${escapeHtml(data.solution)}</div>`:''}${tech?`<div class="proj-techs">${tech}</div>`:''}<div class="proj-footer">🔒 ผลงานส่วนตัว / เผยแพร่เพื่อการศึกษา</div><div class="proj-admin-actions"><button type="button" class="edit-project">แก้ไข</button><button type="button" class="delete-project">ลบ</button></div></div>`;card.querySelector('.edit-project').addEventListener('click',()=>requireUnlock(()=>openProjectModal(data.id)));card.querySelector('.delete-project').addEventListener('click',()=>requireUnlock(()=>deleteProject(data.id)));return card;}
+function renderProjects(){grid.querySelectorAll('.proj-card[data-project-id]').forEach(el=>el.remove());projects.forEach(p=>grid.insertBefore(buildCard(p),openBtn));}
+function openProjectModal(id=null){form.reset();document.getElementById('pId').value='';if(id){const d=projects.find(p=>p.id===id);if(!d)return;document.getElementById('pId').value=d.id;document.getElementById('pTag').value=d.tag||'';document.getElementById('pTitle').value=d.title||'';document.getElementById('pSub').value=d.sub||'';document.getElementById('pProblem').value=d.problem||'';document.getElementById('pSolution').value=d.solution||'';document.getElementById('pTech').value=d.tech||'';overlay.querySelector('h3').textContent='แก้ไขผลงาน';overlay.querySelector('.modal-sub').textContent='แก้ไขข้อมูลแล้วกดบันทึก';form.querySelector('button[type=submit]').textContent='บันทึกการแก้ไข';}else{overlay.querySelector('h3').textContent='เพิ่มผลงานใหม่';overlay.querySelector('.modal-sub').textContent='กรอกข้อมูลโปรเจกต์ของคุณ แล้วการ์ดจะถูกสร้างขึ้นทันที';form.querySelector('button[type=submit]').textContent='เพิ่มผลงาน';}overlay.classList.add('open');}
+function closeModal(){overlay.classList.remove('open');form.reset();document.getElementById('pId').value='';}
+function deleteProject(id){const p=projects.find(x=>x.id===id);if(!p)return;if(confirm(`ต้องการลบผลงาน "${p.title}" ใช่หรือไม่?`)){projects=projects.filter(x=>x.id!==id);saveProjects();renderProjects();}}
+openBtn.addEventListener('click',()=>requireUnlock(()=>openProjectModal())); openBtn.addEventListener('keypress',e=>{if(e.key==='Enter')requireUnlock(()=>openProjectModal());}); closeBtn.addEventListener('click',closeModal); cancelBtn.addEventListener('click',closeModal); overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
+form.addEventListener('submit',e=>{e.preventDefault();const id=document.getElementById('pId').value||null;const existing=id?projects.find(p=>p.id===id):null;const data={id:id||((crypto&&crypto.randomUUID)?crypto.randomUUID():String(Date.now())),tag:document.getElementById('pTag').value.trim(),title:document.getElementById('pTitle').value.trim(),sub:document.getElementById('pSub').value.trim(),problem:document.getElementById('pProblem').value.trim(),solution:document.getElementById('pSolution').value.trim(),tech:document.getElementById('pTech').value.trim(),coverSrc:existing?.coverSrc||null};if(!data.title)return;const commit=()=>{if(id)projects=projects.map(p=>p.id===id?data:p);else projects.push(data);saveProjects();renderProjects();closeModal();};const file=coverInput.files[0];if(file){const r=new FileReader();r.onload=ev=>{data.coverSrc=ev.target.result;commit();};r.readAsDataURL(file);}else commit();});
+loadProjects();renderProjects();
+</script>
+
+
+<div class="owner-badge" id="ownerBadge" title="กด Escape เพื่อออกจากโหมดแก้ไข">
+  OWNER MODE
+</div>
+
+</body>
+</html>
