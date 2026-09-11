@@ -357,70 +357,6 @@
     background:var(--paper);border-top:1px solid var(--line);
   }
 
-  /* ---------- MODAL: เพิ่มผลงาน ---------- */
-  .modal-overlay{
-    position:fixed;inset:0;
-    background:rgba(10,18,20,0.7);
-    display:none;
-    align-items:center;justify-content:center;
-    padding:24px;
-    z-index:200;
-  }
-  .modal-overlay.open{display:flex;}
-  .modal-box{
-    background:var(--navy);
-    color:var(--paper);
-    width:100%;max-width:560px;
-    max-height:88vh;overflow-y:auto;
-    border-radius:14px;
-    border:1px solid rgba(255,255,255,0.12);
-    padding:32px 30px;
-  }
-  .modal-box h3{font-size:1.3rem;margin-bottom:4px;}
-  .modal-box .modal-sub{font-size:0.85rem;color:#9FB8B2;margin-bottom:24px;}
-  .field{margin-bottom:16px;}
-  .field label{
-    display:block;font-size:0.82rem;color:#C4D6D1;margin-bottom:6px;font-weight:600;
-  }
-  .field input[type="text"],
-  .field textarea{
-    width:100%;
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.15);
-    color:var(--paper);
-    border-radius:8px;
-    padding:10px 12px;
-    font-family:'Sarabun',sans-serif;
-    font-size:0.9rem;
-    resize:vertical;
-  }
-  .field input[type="text"]:focus,
-  .field textarea:focus{outline:none;border-color:var(--teal);}
-  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  .field input[type="file"]{
-    font-size:0.82rem;color:#C4D6D1;
-  }
-  .modal-actions{
-    display:flex;gap:12px;margin-top:24px;
-  }
-  .btn-secondary{
-    background:transparent;
-    border:1px solid rgba(255,255,255,0.25);
-    color:var(--paper);
-  }
-  .btn-secondary:hover{border-color:var(--teal);color:var(--teal);}
-  .modal-close{
-    position:absolute;top:18px;right:20px;
-    background:none;border:none;color:#9FB8B2;font-size:1.3rem;cursor:pointer;
-  }
-  .modal-box{position:relative;}
-
-
-  .proj-admin-actions{display:flex;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);}
-  .proj-admin-actions button{flex:1;padding:8px 10px;border-radius:7px;border:1px solid rgba(255,255,255,0.18);background:transparent;color:var(--paper);cursor:pointer;font-family:'Sarabun',sans-serif;}
-  .proj-admin-actions button:hover{border-color:var(--teal);color:var(--teal);}
-  .proj-admin-actions .delete-project:hover{border-color:#E68A6C;color:#E68A6C;}
-
   /* ---------- responsive ---------- */
   @media(max-width:900px){
     .hero{grid-template-columns:1fr;}
@@ -430,47 +366,6 @@
     .skills-grid,.proj-grid{grid-template-columns:1fr;}
     .nav-links{display:none;}
     .nav-toggle{display:block;}
-  }
-
-  /* ---------- OWNER MODE ---------- */
-  #addProjectBtn,
-  .proj-admin-actions{
-    display:none !important;
-  }
-
-  body.owner-mode #addProjectBtn{
-    display:flex !important;
-  }
-
-  body.owner-mode .proj-admin-actions{
-    display:flex !important;
-  }
-
-  .owner-badge{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    z-index:300;
-    background:var(--teal);
-    color:var(--navy);
-    border-radius:999px;
-    padding:8px 14px;
-    font-size:0.78rem;
-    font-weight:700;
-    box-shadow:0 8px 24px rgba(0,0,0,.18);
-    display:none;
-  }
-
-  body.owner-mode .owner-badge{
-    display:block;
-  }
-
-
-  /* Visitor-safe admin controls */
-  body:not(.owner-mode) #addProjectBtn,
-  body:not(.owner-mode) .proj-admin-actions,
-  body:not(.owner-mode) .owner-badge{
-    display:none !important;
   }
 
   /* ---------- PROJECT LINK ---------- */
@@ -682,126 +577,110 @@
     <h2 class="section-title">ผลงาน / Portfolio</h2>
   </div>
   <p class="section-sub">ผลงานและโปรเจกต์ที่ได้ลงมือทำ ทั้งโปรเจกต์ส่วนตัวและโปรเจกต์ที่พัฒนาร่วมกับเพื่อน ๆ เพื่อฝึกการทำงานจริง การแก้ปัญหา และการทำงานเป็นทีม</p>
-  <div class="proj-grid" id="projGrid">
 
-<!-- PROJECT 1 : PHA-THAI AI -->
-<div class="proj-card">
-<a href="ใส่ลิงก์ผลงานตรงนี้"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="project-cover-link">
+  <div class="proj-grid">
 
-  <img class="proj-cover"
-       src="picture/pha-thai-ai.png"
-       alt="PHA-THAI AI">
-
-</a>
-
-  <div class="proj-body">
-    <div class="ptag">AI / DATA</div>
-
-    <h4>
-      PHA-THAI AI — ระบบสืบค้นองค์ความรู้ผ้าไทยด้วย RAG
-    </h4>
-
-    <p class="psub">
-      เว็บแอปพลิเคชันที่นำ AI มาช่วยค้นหาและนำเสนอข้อมูลเกี่ยวกับ
-      ภูมิปัญญาผ้าไทยจากพื้นที่ต่าง ๆ ให้เข้าถึงข้อมูลได้สะดวกมากขึ้น
-    </p>
-
-    <div class="ps-box problem">
-      <b><span class="tag-icon">✦</span>ที่มาของโปรเจกต์</b>
-      ข้อมูลเกี่ยวกับผ้าไทยมีอยู่จากหลายแหล่งและมีรายละเอียดเฉพาะของแต่ละพื้นที่
-      ทำให้การค้นหาและรวบรวมข้อมูลที่เกี่ยวข้องต้องใช้เวลา
-      โปรเจกต์นี้จึงทดลองนำเทคโนโลยี AI มาช่วยจัดการและค้นคืนองค์ความรู้
-      เพื่อให้ผู้ใช้งานสามารถเข้าถึงข้อมูลที่ต้องการได้ง่ายขึ้น
+    <!-- PROJECT 1 : PHA-THAI AI -->
+    <div class="proj-card">
+      <img class="proj-cover" src="picture/pha-thai-ai.png" alt="PHA-THAI AI">
+      <div class="proj-body">
+        <div class="ptag">AI / DATA</div>
+        <h4>PHA-THAI AI — ระบบสืบค้นองค์ความรู้ผ้าไทยด้วย RAG</h4>
+        <p class="psub">เว็บแอปพลิเคชันที่นำ AI มาช่วยค้นหาและนำเสนอข้อมูลเกี่ยวกับภูมิปัญญาผ้าไทยจากพื้นที่ต่าง ๆ ให้เข้าถึงข้อมูลได้สะดวกมากขึ้น</p>
+        <div class="ps-box"><b><span class="tag-icon">✦</span>ที่มาของโปรเจกต์</b>ข้อมูลเกี่ยวกับผ้าไทยมีอยู่จากหลายแหล่งและมีรายละเอียดเฉพาะของแต่ละพื้นที่ ทำให้การค้นหาและรวบรวมข้อมูลที่เกี่ยวข้องต้องใช้เวลา</div>
+        <div class="ps-box"><b><span class="tag-icon">→</span>สิ่งที่พัฒนา</b>ออกแบบ Web Application ร่วมกับ Retrieval-Augmented Generation (RAG) โดยเตรียมข้อมูลผ่าน Data Processing และ NLP ก่อนนำไปใช้ค้นคืนข้อมูลและประกอบคำตอบของระบบ</div>
+        <div class="proj-techs"><span class="tech-chip">Python</span><span class="tech-chip">RAG</span><span class="tech-chip">FastAPI</span><span class="tech-chip">React</span><span class="tech-chip">PyThaiNLP</span><span class="tech-chip">Vector Database</span></div>
+        <div class="proj-footer">โปรเจกต์เพื่อการศึกษา</div>
+      </div>
     </div>
 
-    <div class="ps-box solution">
-      <b><span class="tag-icon">→</span>สิ่งที่พัฒนา</b>
-      ออกแบบ Web Application ร่วมกับแนวคิด Retrieval-Augmented Generation (RAG)
-      โดยเตรียมข้อมูลผ่านกระบวนการ Data Processing และ NLP
-      ก่อนนำข้อมูลไปใช้สำหรับการค้นคืนและประกอบคำตอบของระบบ
-      เพื่อให้การตอบคำถามอ้างอิงกับชุดข้อมูลที่จัดเตรียมไว้
-      และลดการตอบข้อมูลที่อยู่นอกขอบเขตของระบบ
+    <!-- PROJECT 2 : SlideMe -->
+    <div class="proj-card">
+      <img class="proj-cover" src="picture/slideme.png" alt="SlideMe">
+      <div class="proj-body">
+        <div class="ptag">FULL-STACK</div>
+        <h4>SlideMe — ระบบเรียกรถสไลด์สำหรับเหตุฉุกเฉินบนท้องถนน</h4>
+        <p class="psub">แอปพลิเคชันสำหรับเชื่อมต่อผู้ใช้รถที่ต้องการความช่วยเหลือกับผู้ให้บริการรถสไลด์ โดยนำข้อมูลตำแหน่งมาใช้ในการให้บริการ</p>
+        <div class="ps-box"><b><span class="tag-icon">✦</span>ที่มาของโปรเจกต์</b>เมื่อรถเสียหรือเกิดเหตุฉุกเฉิน ผู้ใช้อาจต้องค้นหาผู้ให้บริการด้วยตนเอง และไม่ทราบระยะทางหรือค่าใช้จ่ายโดยประมาณก่อนเรียกใช้บริการ</div>
+        <div class="ps-box"><b><span class="tag-icon">→</span>สิ่งที่พัฒนา</b>พัฒนาระบบแยกฝั่งผู้ใช้และผู้ให้บริการ พร้อม Backend และ API โดยใช้พิกัด GPS สำหรับระยะทาง ค่าใช้จ่ายเบื้องต้น และการติดตามสถานะการให้บริการ</div>
+        <div class="proj-techs"><span class="tech-chip">React</span><span class="tech-chip">Node.js</span><span class="tech-chip">Express</span><span class="tech-chip">REST API</span><span class="tech-chip">JavaScript</span><span class="tech-chip">GPS</span></div>
+        <div class="proj-footer">โปรเจกต์เพื่อการศึกษา</div>
+      </div>
     </div>
 
-    <div class="proj-techs">
-      <span class="tech-chip">Python</span>
-      <span class="tech-chip">RAG</span>
-      <span class="tech-chip">FastAPI</span>
-      <span class="tech-chip">React</span>
-      <span class="tech-chip">PyThaiNLP</span>
-      <span class="tech-chip">Vector Database</span>
+    <!-- PROJECT 3 : Silky POS -->
+    <div class="proj-card">
+      <div class="proj-cover placeholder">SILKY POS<br>Project Cover</div>
+      <div class="proj-body">
+        <div class="ptag">FULL-STACK / POS</div>
+        <h4>Silky POS — ระบบจัดการออเดอร์และการขายสำหรับร้านราเม็ง</h4>
+        <p class="psub">ระบบ POS สำหรับจัดการการทำงานภายในร้าน ตั้งแต่การรับออเดอร์ การส่งรายการเข้าครัว ไปจนถึงการจัดการโต๊ะ เมนู และข้อมูลการขาย</p>
+        <div class="ps-box"><b><span class="tag-icon">✦</span>ที่มาของโปรเจกต์</b>การรับออเดอร์แบบจดมืออาจทำให้รายการตกหล่นหรือสื่อสารคลาดเคลื่อนระหว่างพนักงานหน้าร้านและครัว จึงพัฒนาระบบเพื่อให้ขั้นตอนการทำงานเป็นระบบมากขึ้น</div>
+        <div class="ps-box"><b><span class="tag-icon">→</span>สิ่งที่พัฒนา</b>พนักงานหน้าร้านเปิดโต๊ะ รับออเดอร์จากลูกค้า และกดส่งรายการเข้าสู่ครัว ครัวตรวจสอบรายการและอัปเดตสถานะอาหาร ส่วน Admin จัดการเมนูและตรวจสอบข้อมูลการขาย</div>
+        <div class="proj-techs"><span class="tech-chip">Node.js</span><span class="tech-chip">Express</span><span class="tech-chip">MongoDB</span><span class="tech-chip">Mongoose</span><span class="tech-chip">REST API</span><span class="tech-chip">JWT</span><span class="tech-chip">JavaScript</span></div>
+        <div class="proj-footer">โปรเจกต์กลุ่ม — พัฒนาร่วมกับสมาชิกในทีม</div>
+      </div>
     </div>
 
-    <div class="proj-footer">
-      โปรเจกต์เพื่อการศึกษา
-    </div>
-  </div>
-</div>
-
-
-<!-- PROJECT 2 : SlideMe -->
-<div class="proj-card">
-<a href="ใส่ลิงก์-SlideMe-ตรงนี้"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="project-cover-link">
-
-    <img class="proj-cover"
-         src="picture/slideme.png"
-         alt="SlideMe">
-
-  </a>
-
-  <div class="proj-body">
-    <div class="ptag">FULL-STACK</div>
-
-    <h4>
-      SlideMe — ระบบเรียกรถสไลด์สำหรับเหตุฉุกเฉินบนท้องถนน
-    </h4>
-
-    <p class="psub">
-      แอปพลิเคชันสำหรับเชื่อมต่อผู้ใช้รถที่ต้องการความช่วยเหลือ
-      กับผู้ให้บริการรถสไลด์ โดยนำข้อมูลตำแหน่งมาใช้ในการให้บริการ
-    </p>
-
-    <div class="ps-box problem">
-      <b><span class="tag-icon">✦</span>ที่มาของโปรเจกต์</b>
-      เมื่อรถเสียหรือเกิดเหตุฉุกเฉิน ผู้ใช้ต้องค้นหาผู้ให้บริการด้วยตนเอง
-      และอาจไม่ทราบว่ารถสไลด์อยู่ห่างจากตำแหน่งปัจจุบันเท่าใด
-      รวมถึงไม่สามารถทราบค่าใช้จ่ายโดยประมาณก่อนตัดสินใจเรียกใช้บริการ
-      จึงเกิดแนวคิดในการรวมขั้นตอนเหล่านี้ไว้ในระบบเดียว
+    <!-- PROJECT 4 : REF -->
+    <div class="proj-card">
+      <div class="proj-cover placeholder">REF<br>Figma Prototype</div>
+      <div class="proj-body">
+        <div class="ptag">UI/UX DESIGN</div>
+        <h4>REF — ออกแบบต้นแบบแอปพลิเคชันแนะนำสไตล์การแต่งตัว</h4>
+        <p class="psub">ผลงานออกแบบ UI/UX บน Figma สำหรับแอปพลิเคชันที่ช่วยแนะนำไอเดียการแต่งตัวให้เหมาะกับโอกาสและสถานการณ์ต่าง ๆ</p>
+        <div class="ps-box"><b><span class="tag-icon">✦</span>ที่มาของโปรเจกต์</b>ผู้ใช้อาจไม่แน่ใจว่าควรเลือกเสื้อผ้าแบบใดให้เหมาะกับสถานที่ กิจกรรม หรือโอกาสต่าง ๆ จึงออกแบบแนวคิดแอปที่ช่วยค้นหาและเลือกสไตล์ได้ง่ายขึ้น</div>
+        <div class="ps-box"><b><span class="tag-icon">→</span>สิ่งที่พัฒนา</b>ออกแบบ User Interface และ Prototype ด้วย Figma วางโครงสร้างหน้าจอและ User Flow ตั้งแต่ค้นหาไอเดีย เลือกตามโอกาส ไปจนถึงบันทึกชุดที่สนใจ พร้อมคำนึงถึง Responsive Design</div>
+        <div class="proj-techs"><span class="tech-chip">Figma</span><span class="tech-chip">UI/UX Design</span><span class="tech-chip">Prototype</span><span class="tech-chip">Design Thinking</span><span class="tech-chip">Responsive Design</span></div>
+        <div class="proj-footer">ผลงานออกแบบ Prototype</div>
+      </div>
     </div>
 
-    <div class="ps-box solution">
-      <b><span class="tag-icon">→</span>สิ่งที่พัฒนา</b>
-      พัฒนาระบบที่แบ่งการใช้งานระหว่างฝั่งผู้ใช้และผู้ให้บริการ
-      พร้อม Backend สำหรับจัดการข้อมูลและ API
-      โดยนำพิกัด GPS มาใช้ประกอบการค้นหารถสไลด์
-      คำนวณระยะทางและค่าใช้จ่ายเบื้องต้น
-      รวมถึงรองรับการติดตามสถานะของการให้บริการ
+    <!-- PROJECT 5 : Trash Space -->
+    <div class="proj-card">
+      <div class="proj-cover placeholder">TRASH SPACE<br>JavaScript Game</div>
+      <div class="proj-body">
+        <div class="ptag">GAME / JAVASCRIPT</div>
+        <h4>Trash Space — เกมฝึกคำนวณเลข 24 ในธีมอวกาศ</h4>
+        <p class="psub">เกมคำนวณที่นำโจทย์เลข 24 มาผสมกับรูปแบบเกมอวกาศ เพื่อฝึกการคิดและสร้างประสบการณ์การเล่นที่สนุกมากขึ้น</p>
+        <div class="ps-box"><b><span class="tag-icon">✦</span>ที่มาของโปรเจกต์</b>ต้องการทำให้การฝึกคำนวณเลข 24 มีความน่าสนใจมากกว่าการแก้โจทย์แบบเดิม จึงนำแนวคิดมาผสมกับรูปแบบเกม</div>
+        <div class="ps-box"><b><span class="tag-icon">→</span>สิ่งที่พัฒนา</b>พัฒนาเกมด้วย JavaScript และ HTML5 Canvas พร้อมประยุกต์แนวคิดโครงสร้างข้อมูลและอัลกอริทึม เช่น Queue, Recursion และ Array ในการจัดการ Logic ของเกม</div>
+        <div class="proj-techs"><span class="tech-chip">JavaScript</span><span class="tech-chip">HTML5 Canvas</span><span class="tech-chip">Data Structures</span><span class="tech-chip">CSS3</span></div>
+        <div class="proj-footer">โปรเจกต์เพื่อการศึกษา</div>
+      </div>
     </div>
 
-    <div class="proj-techs">
-      <span class="tech-chip">React</span>
-      <span class="tech-chip">Node.js</span>
-      <span class="tech-chip">Express</span>
-      <span class="tech-chip">REST API</span>
-      <span class="tech-chip">JavaScript</span>
-      <span class="tech-chip">GPS</span>
+    <!-- PROJECT 6 : SlipScan AI -->
+    <div class="proj-card">
+      <div class="proj-cover placeholder">SLIPSCAN AI<br>Automation Workflow</div>
+      <div class="proj-body">
+        <div class="ptag">AUTOMATION / AI</div>
+        <h4>SlipScan AI — ระบบบันทึกและจัดการรายจ่ายอัตโนมัติผ่าน LINE</h4>
+        <p class="psub">ระบบ Automation ที่รับภาพสลิปโอนเงินผ่าน LINE แล้วแปลงข้อมูลจากสลิปเป็นรายการรายจ่ายโดยอัตโนมัติ</p>
+        <div class="ps-box"><b><span class="tag-icon">✦</span>ที่มาของโปรเจกต์</b>การจดรายจ่ายด้วยตนเองใช้เวลาและอาจลืมบันทึก จึงออกแบบ Workflow ที่ช่วยลดขั้นตอนการกรอกข้อมูลจากสลิป</div>
+        <div class="ps-box"><b><span class="tag-icon">→</span>สิ่งที่พัฒนา</b>สร้าง Workflow ด้วย n8n เชื่อม LINE, OCR และ Gemini AI เพื่ออ่านและจัดโครงสร้างข้อมูล ก่อนบันทึกลง Google Sheets/Drive และส่งผลกลับให้ผู้ใช้ผ่าน LINE</div>
+        <div class="proj-techs"><span class="tech-chip">n8n</span><span class="tech-chip">Google Gemini AI</span><span class="tech-chip">LINE Messaging API</span><span class="tech-chip">LINE LIFF</span><span class="tech-chip">OCR.space</span><span class="tech-chip">Google Sheets API</span><span class="tech-chip">JavaScript</span></div>
+        <div class="proj-footer">โปรเจกต์ Automation</div>
+      </div>
     </div>
 
-    <div class="proj-footer">
-      โปรเจกต์เพื่อการศึกษา
+    <!-- PROJECT 7 : Personal Portfolio -->
+    <div class="proj-card">
+      <a href="https://github.com/jittimaspu/my-resume" target="_blank" rel="noopener noreferrer" class="project-cover-link" title="เปิดดู Source Code">
+        <div class="proj-cover placeholder">PERSONAL PORTFOLIO<br>Resume Website</div>
+      </a>
+      <div class="proj-body">
+        <div class="ptag">FRONTEND / PORTFOLIO</div>
+        <h4>Personal Portfolio — เว็บไซต์เรซูเม่และรวบรวมผลงานส่วนตัว</h4>
+        <p class="psub">เว็บไซต์ส่วนตัวสำหรับนำเสนอข้อมูล ทักษะ การศึกษา และโปรเจกต์ต่าง ๆ ในรูปแบบ Responsive Portfolio</p>
+        <div class="ps-box"><b><span class="tag-icon">✦</span>ที่มาของโปรเจกต์</b>ต้องการสร้างพื้นที่รวมข้อมูลและผลงานให้อยู่ในเว็บไซต์เดียว เพื่อให้ผู้ที่สนใจสามารถดูทักษะและโปรเจกต์ได้สะดวก</div>
+        <div class="ps-box"><b><span class="tag-icon">→</span>สิ่งที่พัฒนา</b>ออกแบบและพัฒนาเว็บไซต์ด้วย HTML, CSS และ JavaScript โดยจัดโครงสร้างเนื้อหาให้เหมาะกับ Portfolio และรองรับการแสดงผลบนอุปกรณ์หลายขนาด พร้อมเผยแพร่ผ่าน GitHub Pages</div>
+        <div class="proj-techs"><span class="tech-chip">HTML5</span><span class="tech-chip">CSS3</span><span class="tech-chip">JavaScript</span><span class="tech-chip">Responsive Design</span><span class="tech-chip">GitHub Pages</span></div>
+        <div class="project-link-text">คลิกที่รูปเพื่อดู Source Code ↗</div>
+        <div class="proj-footer">โปรเจกต์ส่วนบุคคล</div>
+      </div>
     </div>
-  </div>
-</div>
-    <div class="proj-card empty" id="addProjectBtn" role="button" tabindex="0">
-      <span>+</span>
-      เพิ่มผลงานของคุณ<br>(คลิกเพื่อกรอกข้อมูล)
-    </div>
+
   </div>
 </section>
 
@@ -890,7 +769,7 @@
       <p>ตอบกลับอีเมลและข้อความภายใน 24 ชั่วโมง</p>
 
       <a class="btn btn-primary"
-         href="https://mail.google.com/mail/?view=cm&fs=1&to=jittima.opa27%40gmail.com&su=%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B9%80%E0%B8%A7%E0%B9%87%E0%B8%9A%E0%B9%84%E0%B8%8B%E0%B8%95%E0%B9%8C%20Portfolio"
+         href="https://mail.google.com/mail/?view=cm&fs=1&to=jittima.opa%40gmail.com&su=%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B9%80%E0%B8%A7%E0%B9%87%E0%B8%9A%E0%B9%84%E0%B8%8B%E0%B8%95%E0%B9%8C%20Portfolio"
          target="_blank"
          rel="noopener noreferrer">
         ส่งอีเมลถึงฉัน
@@ -901,994 +780,6 @@
   </div>
 </section>
 <footer>© 2026 Jittima Oparp — Resume Website</footer>
-
-<!-- MODAL: กรอกรหัสผ่านเจ้าของเว็บ -->
-<div class="modal-overlay" id="pwOverlay">
-  <div class="modal-box" style="max-width:380px;text-align:center;">
-    <button class="modal-close" id="pwClose" aria-label="ปิด">✕</button>
-    <div style="width:52px;height:52px;border-radius:50%;background:rgba(95,167,154,0.12);border:1px solid rgba(95,167,154,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.4rem;">🔒</div>
-    <h3 style="margin-bottom:6px;">สำหรับเจ้าของเว็บ</h3>
-    <p class="modal-sub" style="margin-bottom:22px;">กรอกรหัสผ่านเพื่อเพิ่มผลงานใหม่</p>
-    <form id="pwForm">
-      <div class="field" style="text-align:left;">
-        <input type="password" id="pwInput" placeholder="รหัสผ่าน" autocomplete="off"
-          style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:var(--paper);border-radius:8px;padding:12px 14px;font-size:0.95rem;letter-spacing:0.05em;">
-      </div>
-      <p id="pwError" style="display:none;color:#E68A6C;font-size:0.82rem;margin-top:-8px;margin-bottom:14px;text-align:left;">รหัสผ่านไม่ถูกต้อง ลองอีกครั้ง</p>
-      <div class="modal-actions" style="margin-top:18px;">
-        <button type="button" class="btn btn-secondary" id="pwCancel" style="flex:1;">ยกเลิก</button>
-        <button type="submit" class="btn btn-primary" style="flex:1;">ปลดล็อก</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- MODAL: เพิ่มผลงาน -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal-box">
-    <button class="modal-close" id="modalClose" aria-label="ปิด">✕</button>
-    <h3>เพิ่มผลงานใหม่</h3>
-    <p class="modal-sub">กรอกข้อมูลโปรเจกต์ของคุณ แล้วการ์ดจะถูกสร้างขึ้นทันที</p>
-
-   <form id="projectForm">
-
-  <input type="hidden" id="pId">
-
-  <div class="field-row">
-
-    <div class="field">
-      <label>หมวดหมู่ (เช่น FULLSTACK)</label>
-      <input type="text" id="pTag" placeholder="FULLSTACK">
-    </div>
-
-    <div class="field">
-      <label>รูปปกโปรเจกต์</label>
-      <input type="file" id="pCover" accept="image/*">
-    </div>
-
-  </div>
-
-  <div class="field">
-    <label>ชื่อโปรเจกต์</label>
-    <input
-      type="text"
-      id="pTitle"
-      placeholder="เช่น ระบบจัดการงาน..."
-      required>
-  </div>
-
-  <div class="field">
-    <label>คำโปรยสั้น ๆ</label>
-    <input
-      type="text"
-      id="pSub"
-      placeholder="โปรเจกต์นี้ทำอะไร เพื่อใคร">
-  </div>
-
-  <div class="field">
-    <label>เริ่มต้นจากอะไร</label>
-    <textarea
-      id="pProblem"
-      rows="2"
-      placeholder="ปัญหาที่ต้องการแก้ไข"></textarea>
-  </div>
-
-  <div class="field">
-    <label>ลงมือทำยังไง</label>
-    <textarea
-      id="pSolution"
-      rows="2"
-      placeholder="แนวทางและวิธีที่พัฒนา"></textarea>
-  </div>
-
-  <div class="field">
-    <label>เทคโนโลยีที่ใช้ (คั่นด้วยจุลภาค)</label>
-    <input
-      type="text"
-      id="pTech"
-      placeholder="React, Node.js, MongoDB">
-  </div>
-
-  <!-- ลิงก์ไม่บังคับ -->
-  <div class="field">
-    <label>ลิงก์ผลงาน (ไม่บังคับ)</label>
-    <input
-      type="text"
-      id="pLink"
-      placeholder="GitHub, Figma, เว็บไซต์ หรือ Demo">
-  </div>
-
-  <div class="modal-actions">
-
-    <button
-      type="button"
-      class="btn btn-secondary"
-      id="modalCancel">
-      ยกเลิก
-    </button>
-
-    <button
-      type="submit"
-      class="btn btn-primary"
-      style="flex:1;">
-      เพิ่มผลงาน
-    </button>
-
-  </div>
-
-</form>
-  </div>
-</div>
-
-<script>
-
-const overlay = document.getElementById('modalOverlay');
-const openBtn = document.getElementById('addProjectBtn');
-const closeBtn = document.getElementById('modalClose');
-const cancelBtn = document.getElementById('modalCancel');
-
-const form = document.getElementById('projectForm');
-const grid = document.getElementById('projGrid');
-const coverInput = document.getElementById('pCover');
-
-const EDIT_PASSWORD = 'mint2569';
-const STORAGE_KEY = 'resumeProjectsV2';
-
-const pwOverlay = document.getElementById('pwOverlay');
-const pwForm = document.getElementById('pwForm');
-const pwInput = document.getElementById('pwInput');
-const pwError = document.getElementById('pwError');
-const pwClose = document.getElementById('pwClose');
-const pwCancel = document.getElementById('pwCancel');
-
-let projects = [];
-let pendingAction = null;
-
-
-/* =========================
-   OWNER MODE
-========================= */
-
-function isUnlocked(){
-  return document.body.classList.contains('owner-mode');
-}
-
-function openPwModal(action = null){
-
-  pendingAction = action;
-
-  pwError.style.display = 'none';
-  pwInput.value = '';
-
-  pwOverlay.classList.add('open');
-
-  setTimeout(() => {
-    pwInput.focus();
-  },50);
-}
-
-function closePwModal(){
-
-  pwOverlay.classList.remove('open');
-
-  pendingAction = null;
-}
-
-pwClose.addEventListener('click', closePwModal);
-pwCancel.addEventListener('click', closePwModal);
-
-pwOverlay.addEventListener('click', e => {
-
-  if(e.target === pwOverlay){
-    closePwModal();
-  }
-
-});
-
-
-pwForm.addEventListener('submit', e => {
-
-  e.preventDefault();
-
-  if(pwInput.value === EDIT_PASSWORD){
-
-    enableOwnerMode();
-
-    pwOverlay.classList.remove('open');
-
-    const action = pendingAction;
-
-    pendingAction = null;
-
-    if(typeof action === 'function'){
-      action();
-    }
-
-  }else{
-
-    pwError.style.display = 'block';
-
-    pwInput.value = '';
-
-    pwInput.focus();
-  }
-
-});
-
-
-function requireUnlock(action){
-
-  if(isUnlocked()){
-    action();
-  }else{
-    openPwModal(action);
-  }
-
-}
-
-
-/* =========================
-   HIDDEN OWNER ACCESS
-   คลิกชื่อ 5 ครั้ง
-========================= */
-
-function enableOwnerMode(){
-
-  document.body.classList.add('owner-mode');
-
-}
-
-function disableOwnerMode(){
-
-  document.body.classList.remove('owner-mode');
-
-}
-
-
-const ownerTrigger = document.querySelector('.nav-name');
-
-let ownerClickCount = 0;
-let ownerClickTimer = null;
-
-
-if(ownerTrigger){
-
-  ownerTrigger.addEventListener('click', () => {
-
-    ownerClickCount++;
-
-    clearTimeout(ownerClickTimer);
-
-    ownerClickTimer = setTimeout(() => {
-      ownerClickCount = 0;
-    },3000);
-
-
-    if(ownerClickCount >= 5){
-
-      ownerClickCount = 0;
-
-      clearTimeout(ownerClickTimer);
-
-
-      if(document.body.classList.contains('owner-mode')){
-
-        disableOwnerMode();
-
-      }else{
-
-        openPwModal(() => enableOwnerMode());
-
-      }
-    }
-
-  });
-
-}
-
-
-/* กด ESC เพื่อออกจาก Owner Mode */
-
-document.addEventListener('keydown', e => {
-
-  if(
-    e.key === 'Escape' &&
-    document.body.classList.contains('owner-mode')
-  ){
-
-    if(
-      !overlay.classList.contains('open') &&
-      !pwOverlay.classList.contains('open')
-    ){
-
-      disableOwnerMode();
-
-    }
-
-  }
-
-});
-
-
-/* =========================
-   PROJECT SYSTEM
-========================= */
-
-function escapeHtml(str = ''){
-
-  const div = document.createElement('div');
-
-  div.textContent = str;
-
-  return div.innerHTML;
-}
-
-
-/* โหลดโปรเจกต์ */
-
-function loadProjects(){
-
-  try{
-
-    projects = JSON.parse(
-      localStorage.getItem(STORAGE_KEY) || '[]'
-    );
-
-    if(!Array.isArray(projects)){
-      projects = [];
-    }
-
-  }catch{
-
-    projects = [];
-
-  }
-
-}
-
-
-/* บันทึกโปรเจกต์ */
-
-function saveProjects(){
-
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify(projects)
-  );
-
-}
-
-
-/* =========================
-   สร้าง Project Card
-========================= */
-
-function buildCard(data){
-
-  const card = document.createElement('div');
-
-  card.className = 'proj-card';
-
-  card.dataset.projectId = data.id;
-
-
-  /* ---------- รูปปก ---------- */
-
-  let cover;
-
-
-  if(data.coverSrc){
-
-    const image = `
-      <img
-        class="proj-cover"
-        src="${data.coverSrc}"
-        alt="${escapeHtml(data.title || 'ปกโปรเจกต์')}">
-    `;
-
-
-    /* มี Link */
-
-    if(data.link){
-
-      cover = `
-        <a
-          href="${escapeHtml(data.link)}"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="project-cover-link"
-          title="เปิดดูผลงาน">
-
-          ${image}
-
-        </a>
-      `;
-
-    }
-
-    /* ไม่มี Link */
-
-    else{
-
-      cover = image;
-
-    }
-
-  }
-
-  /* ไม่มีรูป */
-
-  else{
-
-    cover = `
-      <div class="proj-cover placeholder">
-        ไม่มีรูปปก
-      </div>
-    `;
-
-  }
-
-
-  /* ---------- Technology ---------- */
-
-  const tech = (data.tech || '')
-
-    .split(',')
-
-    .map(t => t.trim())
-
-    .filter(Boolean)
-
-    .map(t => `
-      <span class="tech-chip">
-        ${escapeHtml(t)}
-      </span>
-    `)
-
-    .join('');
-
-
-  /* ---------- Card HTML ---------- */
-
-  card.innerHTML = `
-
-    ${cover}
-
-    <div class="proj-body">
-
-      <div class="ptag">
-        ${escapeHtml(data.tag || 'PROJECT')}
-      </div>
-
-      <h4>
-        ${escapeHtml(data.title || '')}
-      </h4>
-
-
-      ${
-        data.sub
-        ?
-        `
-        <p class="psub">
-          ${escapeHtml(data.sub)}
-        </p>
-        `
-        :
-        ''
-      }
-
-
-      ${
-        data.problem
-        ?
-        `
-        <div class="ps-box">
-
-          <b>
-            <span class="tag-icon">✦</span>
-            เริ่มต้นจากอะไร
-          </b>
-
-          ${escapeHtml(data.problem)}
-
-        </div>
-        `
-        :
-        ''
-      }
-
-
-      ${
-        data.solution
-        ?
-        `
-        <div class="ps-box">
-
-          <b>
-            <span class="tag-icon">→</span>
-            ลงมือทำยังไง
-          </b>
-
-          ${escapeHtml(data.solution)}
-
-        </div>
-        `
-        :
-        ''
-      }
-
-
-      ${
-        tech
-        ?
-        `
-        <div class="proj-techs">
-          ${tech}
-        </div>
-        `
-        :
-        ''
-      }
-
-
-      ${
-        data.link
-        ?
-        `
-        <div class="project-link-text">
-          คลิกที่รูปเพื่อดูผลงาน ↗
-        </div>
-        `
-        :
-        ''
-      }
-
-
-      <div class="proj-footer">
-        โปรเจกต์เพื่อการศึกษา
-      </div>
-
-
-      <div class="proj-admin-actions">
-
-        <button
-          type="button"
-          class="edit-project">
-          แก้ไข
-        </button>
-
-        <button
-          type="button"
-          class="delete-project">
-          ลบ
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
-
-
-  /* ปุ่มแก้ไข */
-
-  card
-    .querySelector('.edit-project')
-    .addEventListener('click', () => {
-
-      requireUnlock(
-        () => openProjectModal(data.id)
-      );
-
-    });
-
-
-  /* ปุ่มลบ */
-
-  card
-    .querySelector('.delete-project')
-    .addEventListener('click', () => {
-
-      requireUnlock(
-        () => deleteProject(data.id)
-      );
-
-    });
-
-
-  return card;
-
-}
-
-
-/* =========================
-   แสดงโปรเจกต์
-========================= */
-
-function renderProjects(){
-
-  grid
-    .querySelectorAll(
-      '.proj-card[data-project-id]'
-    )
-    .forEach(el => el.remove());
-
-
-  projects.forEach(project => {
-
-    grid.insertBefore(
-      buildCard(project),
-      openBtn
-    );
-
-  });
-
-}
-
-
-/* =========================
-   เปิดเพิ่ม / แก้ไข
-========================= */
-
-function openProjectModal(id = null){
-
-  form.reset();
-
-  document.getElementById('pId').value = '';
-
-
-  /* ---------- EDIT ---------- */
-
-  if(id){
-
-    const data = projects.find(
-      project => project.id === id
-    );
-
-
-    if(!data){
-      return;
-    }
-
-
-    document.getElementById('pId').value =
-      data.id;
-
-
-    document.getElementById('pTag').value =
-      data.tag || '';
-
-
-    document.getElementById('pTitle').value =
-      data.title || '';
-
-
-    document.getElementById('pSub').value =
-      data.sub || '';
-
-
-    document.getElementById('pProblem').value =
-      data.problem || '';
-
-
-    document.getElementById('pSolution').value =
-      data.solution || '';
-
-
-    document.getElementById('pTech').value =
-      data.tech || '';
-
-
-    /* โหลด Link เดิม */
-
-    document.getElementById('pLink').value =
-      data.link || '';
-
-
-    overlay
-      .querySelector('h3')
-      .textContent = 'แก้ไขผลงาน';
-
-
-    overlay
-      .querySelector('.modal-sub')
-      .textContent =
-      'แก้ไขข้อมูลแล้วกดบันทึก';
-
-
-    form
-      .querySelector('button[type="submit"]')
-      .textContent =
-      'บันทึกการแก้ไข';
-
-  }
-
-  /* ---------- ADD ---------- */
-
-  else{
-
-    overlay
-      .querySelector('h3')
-      .textContent =
-      'เพิ่มผลงานใหม่';
-
-
-    overlay
-      .querySelector('.modal-sub')
-      .textContent =
-      'กรอกข้อมูลโปรเจกต์ของคุณ แล้วการ์ดจะถูกสร้างขึ้นทันที';
-
-
-    form
-      .querySelector('button[type="submit"]')
-      .textContent =
-      'เพิ่มผลงาน';
-
-  }
-
-
-  overlay.classList.add('open');
-
-}
-
-
-/* =========================
-   ปิด Modal
-========================= */
-
-function closeModal(){
-
-  overlay.classList.remove('open');
-
-  form.reset();
-
-  document.getElementById('pId').value = '';
-
-}
-
-
-/* =========================
-   ลบ Project
-========================= */
-
-function deleteProject(id){
-
-  const project = projects.find(
-    p => p.id === id
-  );
-
-
-  if(!project){
-    return;
-  }
-
-
-  if(
-    confirm(
-      `ต้องการลบผลงาน "${project.title}" ใช่หรือไม่?`
-    )
-  ){
-
-    projects = projects.filter(
-      p => p.id !== id
-    );
-
-    saveProjects();
-
-    renderProjects();
-
-  }
-
-}
-
-
-/* =========================
-   ปุ่มเพิ่ม
-========================= */
-
-openBtn.addEventListener('click', () => {
-
-  requireUnlock(
-    () => openProjectModal()
-  );
-
-});
-
-
-openBtn.addEventListener('keypress', e => {
-
-  if(e.key === 'Enter'){
-
-    requireUnlock(
-      () => openProjectModal()
-    );
-
-  }
-
-});
-
-
-closeBtn.addEventListener(
-  'click',
-  closeModal
-);
-
-
-cancelBtn.addEventListener(
-  'click',
-  closeModal
-);
-
-
-overlay.addEventListener('click', e => {
-
-  if(e.target === overlay){
-    closeModal();
-  }
-
-});
-
-
-/* =========================
-   SAVE PROJECT
-========================= */
-
-form.addEventListener('submit', e => {
-
-  e.preventDefault();
-
-
-  const id =
-    document.getElementById('pId').value || null;
-
-
-  const existing = id
-    ? projects.find(p => p.id === id)
-    : null;
-
-
-  const data = {
-
-    id:
-      id ||
-      (
-        window.crypto &&
-        crypto.randomUUID
-          ? crypto.randomUUID()
-          : String(Date.now())
-      ),
-
-    tag:
-      document
-        .getElementById('pTag')
-        .value
-        .trim(),
-
-    title:
-      document
-        .getElementById('pTitle')
-        .value
-        .trim(),
-
-    sub:
-      document
-        .getElementById('pSub')
-        .value
-        .trim(),
-
-    problem:
-      document
-        .getElementById('pProblem')
-        .value
-        .trim(),
-
-    solution:
-      document
-        .getElementById('pSolution')
-        .value
-        .trim(),
-
-    tech:
-      document
-        .getElementById('pTech')
-        .value
-        .trim(),
-
-    /* Link ไม่บังคับ */
-
-    link:
-      document
-        .getElementById('pLink')
-        .value
-        .trim(),
-
-    /* ใช้รูปเดิมถ้าแก้ไข */
-
-    coverSrc:
-      existing?.coverSrc || null
-
-  };
-
-
-  if(!data.title){
-    return;
-  }
-
-
-  function commit(){
-
-    if(id){
-
-      projects = projects.map(
-        project =>
-          project.id === id
-            ? data
-            : project
-      );
-
-    }else{
-
-      projects.push(data);
-
-    }
-
-
-    saveProjects();
-
-    renderProjects();
-
-    closeModal();
-
-  }
-
-
-  /* มีการเลือกรูปใหม่ */
-
-  const file = coverInput.files[0];
-
-
-  if(file){
-
-    const reader = new FileReader();
-
-
-    reader.onload = event => {
-
-      data.coverSrc =
-        event.target.result;
-
-      commit();
-
-    };
-
-
-    reader.readAsDataURL(file);
-
-  }
-
-  /* ไม่ได้เปลี่ยนรูป */
-
-  else{
-
-    commit();
-
-  }
-
-});
-
-
-/* =========================
-   START
-========================= */
-
-loadProjects();
-
-renderProjects();
-
-</script>
-<div class="owner-badge" id="ownerBadge" title="กด Escape เพื่อออกจากโหมดแก้ไข">
-  OWNER MODE
-</div>
 
 </body>
 </html>
