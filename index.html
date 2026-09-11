@@ -473,6 +473,61 @@
     display:none !important;
   }
 
+  /* ---------- PROJECT LINK ---------- */
+
+.project-cover-link{
+  display:block;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.project-cover-link .proj-cover{
+  transition:transform .3s ease, filter .3s ease;
+}
+
+.project-cover-link:hover .proj-cover{
+  transform:scale(1.03);
+  filter:brightness(.72);
+}
+
+.project-cover-link::after{
+  content:"ดูผลงาน ↗";
+
+  position:absolute;
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-40%);
+
+  background:rgba(18,36,43,.92);
+  color:#fff;
+
+  border:1px solid rgba(255,255,255,.25);
+
+  padding:9px 16px;
+  border-radius:7px;
+
+  font-size:.82rem;
+  font-weight:600;
+
+  opacity:0;
+
+  transition:
+    opacity .2s ease,
+    transform .2s ease;
+}
+
+.project-cover-link:hover::after{
+  opacity:1;
+  transform:translate(-50%,-50%);
+}
+
+.project-link-text{
+  margin-top:14px;
+  color:var(--teal);
+  font-size:.76rem;
+}
 </style>
 </head>
 <body>
@@ -631,9 +686,16 @@
 
 <!-- PROJECT 1 : PHA-THAI AI -->
 <div class="proj-card">
+<a href="ใส่ลิงก์ผลงานตรงนี้"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="project-cover-link">
+
   <img class="proj-cover"
        src="picture/pha-thai-ai.png"
        alt="PHA-THAI AI">
+
+</a>
 
   <div class="proj-body">
     <div class="ptag">AI / DATA</div>
@@ -682,9 +744,16 @@
 
 <!-- PROJECT 2 : SlideMe -->
 <div class="proj-card">
-  <img class="proj-cover"
-       src="picture/slideme.png"
-       alt="SlideMe">
+<a href="ใส่ลิงก์-SlideMe-ตรงนี้"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="project-cover-link">
+
+    <img class="proj-cover"
+         src="picture/slideme.png"
+         alt="SlideMe">
+
+  </a>
 
   <div class="proj-body">
     <div class="ptag">FULL-STACK</div>
@@ -861,117 +930,962 @@
     <h3>เพิ่มผลงานใหม่</h3>
     <p class="modal-sub">กรอกข้อมูลโปรเจกต์ของคุณ แล้วการ์ดจะถูกสร้างขึ้นทันที</p>
 
-    <form id="projectForm">
-      <input type="hidden" id="pId">
-      <div class="field-row">
-        <div class="field">
-          <label>หมวดหมู่ (เช่น FULLSTACK)</label>
-          <input type="text" id="pTag" placeholder="FULLSTACK">
-        </div>
-        <div class="field">
-          <label>รูปปกโปรเจกต์</label>
-          <input type="file" id="pCover" accept="image/*">
-        </div>
-      </div>
+   <form id="projectForm">
 
-      <div class="field">
-        <label>ชื่อโปรเจกต์</label>
-        <input type="text" id="pTitle" placeholder="เช่น ระบบจัดการงาน..." required>
-      </div>
+  <input type="hidden" id="pId">
 
-      <div class="field">
-        <label>คำโปรยสั้น ๆ</label>
-        <input type="text" id="pSub" placeholder="โปรเจกต์นี้ทำอะไร เพื่อใคร">
-      </div>
+  <div class="field-row">
 
-      <div class="field">
-        <label>เริ่มต้นจากอะไร</label>
-        <textarea id="pProblem" rows="2" placeholder="ปัญหาที่ต้องการแก้ไข"></textarea>
-      </div>
+    <div class="field">
+      <label>หมวดหมู่ (เช่น FULLSTACK)</label>
+      <input type="text" id="pTag" placeholder="FULLSTACK">
+    </div>
 
-      <div class="field">
-        <label>ลงมือทำยังไง</label>
-        <textarea id="pSolution" rows="2" placeholder="แนวทางและวิธีที่พัฒนา"></textarea>
-      </div>
+    <div class="field">
+      <label>รูปปกโปรเจกต์</label>
+      <input type="file" id="pCover" accept="image/*">
+    </div>
 
-      <div class="field">
-        <label>เทคโนโลยีที่ใช้ (คั่นด้วยจุลภาค)</label>
-        <input type="text" id="pTech" placeholder="React, Node.js, MongoDB">
-      </div>
+  </div>
 
-      <div class="modal-actions">
-        <button type="button" class="btn btn-secondary" id="modalCancel">ยกเลิก</button>
-        <button type="submit" class="btn btn-primary" style="flex:1;">เพิ่มผลงาน</button>
-      </div>
-    </form>
+  <div class="field">
+    <label>ชื่อโปรเจกต์</label>
+    <input
+      type="text"
+      id="pTitle"
+      placeholder="เช่น ระบบจัดการงาน..."
+      required>
+  </div>
+
+  <div class="field">
+    <label>คำโปรยสั้น ๆ</label>
+    <input
+      type="text"
+      id="pSub"
+      placeholder="โปรเจกต์นี้ทำอะไร เพื่อใคร">
+  </div>
+
+  <div class="field">
+    <label>เริ่มต้นจากอะไร</label>
+    <textarea
+      id="pProblem"
+      rows="2"
+      placeholder="ปัญหาที่ต้องการแก้ไข"></textarea>
+  </div>
+
+  <div class="field">
+    <label>ลงมือทำยังไง</label>
+    <textarea
+      id="pSolution"
+      rows="2"
+      placeholder="แนวทางและวิธีที่พัฒนา"></textarea>
+  </div>
+
+  <div class="field">
+    <label>เทคโนโลยีที่ใช้ (คั่นด้วยจุลภาค)</label>
+    <input
+      type="text"
+      id="pTech"
+      placeholder="React, Node.js, MongoDB">
+  </div>
+
+  <!-- ลิงก์ไม่บังคับ -->
+  <div class="field">
+    <label>ลิงก์ผลงาน (ไม่บังคับ)</label>
+    <input
+      type="text"
+      id="pLink"
+      placeholder="GitHub, Figma, เว็บไซต์ หรือ Demo">
+  </div>
+
+  <div class="modal-actions">
+
+    <button
+      type="button"
+      class="btn btn-secondary"
+      id="modalCancel">
+      ยกเลิก
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      style="flex:1;">
+      เพิ่มผลงาน
+    </button>
+
+  </div>
+
+</form>
   </div>
 </div>
 
 <script>
-const overlay=document.getElementById('modalOverlay'); const openBtn=document.getElementById('addProjectBtn'); const closeBtn=document.getElementById('modalClose'); const cancelBtn=document.getElementById('modalCancel'); const form=document.getElementById('projectForm'); const grid=document.getElementById('projGrid'); const coverInput=document.getElementById('pCover');
-const EDIT_PASSWORD='mint2569'; const STORAGE_KEY='resumeProjectsV2';
-const pwOverlay=document.getElementById('pwOverlay'); const pwForm=document.getElementById('pwForm'); const pwInput=document.getElementById('pwInput'); const pwError=document.getElementById('pwError'); const pwClose=document.getElementById('pwClose'); const pwCancel=document.getElementById('pwCancel');
-let projects=[]; let pendingAction=null;
-function isUnlocked(){return document.body.classList.contains('owner-mode');}
-function openPwModal(action=null){pendingAction=action;pwError.style.display='none';pwInput.value='';pwOverlay.classList.add('open');setTimeout(()=>pwInput.focus(),50);}
-function closePwModal(){pwOverlay.classList.remove('open');pendingAction=null;}
-pwClose.addEventListener('click',closePwModal); pwCancel.addEventListener('click',closePwModal); pwOverlay.addEventListener('click',e=>{if(e.target===pwOverlay)closePwModal();});
-pwForm.addEventListener('submit',e=>{e.preventDefault();if(pwInput.value===EDIT_PASSWORD){enableOwnerMode();pwOverlay.classList.remove('open');const a=pendingAction;pendingAction=null;typeof a==='function'?a():openProjectModal();}else{pwError.style.display='block';pwInput.value='';pwInput.focus();}});
-function requireUnlock(action){isUnlocked()?action():openPwModal(action);}
 
-// ---- Hidden owner access: click site name 5 times ----
-function enableOwnerMode(){
-  document.body.classList.add('owner-mode');
-}
-function disableOwnerMode(){
-  document.body.classList.remove('owner-mode');
-}
+const overlay = document.getElementById('modalOverlay');
+const openBtn = document.getElementById('addProjectBtn');
+const closeBtn = document.getElementById('modalClose');
+const cancelBtn = document.getElementById('modalCancel');
 
-const ownerTrigger=document.querySelector('.nav-name');
-let ownerClickCount=0;
-let ownerClickTimer=null;
+const form = document.getElementById('projectForm');
+const grid = document.getElementById('projGrid');
+const coverInput = document.getElementById('pCover');
 
-if(ownerTrigger){
-  ownerTrigger.addEventListener('click',()=>{
-    ownerClickCount++;
-    clearTimeout(ownerClickTimer);
-    ownerClickTimer=setTimeout(()=>ownerClickCount=0,3000);
+const EDIT_PASSWORD = 'mint2569';
+const STORAGE_KEY = 'resumeProjectsV2';
 
-    if(ownerClickCount>=5){
-      ownerClickCount=0;
-      clearTimeout(ownerClickTimer);
+const pwOverlay = document.getElementById('pwOverlay');
+const pwForm = document.getElementById('pwForm');
+const pwInput = document.getElementById('pwInput');
+const pwError = document.getElementById('pwError');
+const pwClose = document.getElementById('pwClose');
+const pwCancel = document.getElementById('pwCancel');
 
-      if(document.body.classList.contains('owner-mode')){
-        disableOwnerMode();
-      }else{
-        openPwModal(()=>enableOwnerMode());
-      }
-    }
-  });
+let projects = [];
+let pendingAction = null;
+
+
+/* =========================
+   OWNER MODE
+========================= */
+
+function isUnlocked(){
+  return document.body.classList.contains('owner-mode');
 }
 
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape' && document.body.classList.contains('owner-mode')){
-    if(!overlay.classList.contains('open') && !pwOverlay.classList.contains('open')){
-      disableOwnerMode();
-    }
+function openPwModal(action = null){
+
+  pendingAction = action;
+
+  pwError.style.display = 'none';
+  pwInput.value = '';
+
+  pwOverlay.classList.add('open');
+
+  setTimeout(() => {
+    pwInput.focus();
+  },50);
+}
+
+function closePwModal(){
+
+  pwOverlay.classList.remove('open');
+
+  pendingAction = null;
+}
+
+pwClose.addEventListener('click', closePwModal);
+pwCancel.addEventListener('click', closePwModal);
+
+pwOverlay.addEventListener('click', e => {
+
+  if(e.target === pwOverlay){
+    closePwModal();
   }
+
 });
 
-function escapeHtml(str=''){const d=document.createElement('div');d.textContent=str;return d.innerHTML;}
-function loadProjects(){try{projects=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');if(!Array.isArray(projects))projects=[];}catch{projects=[];}}
-function saveProjects(){localStorage.setItem(STORAGE_KEY,JSON.stringify(projects));}
-function buildCard(data){const card=document.createElement('div');card.className='proj-card';card.dataset.projectId=data.id;const cover=data.coverSrc?`<img class="proj-cover" src="${data.coverSrc}" alt="ปกโปรเจกต์">`:`<div class="proj-cover placeholder">ไม่มีรูปปก</div>`;const tech=(data.tech||'').split(',').map(t=>t.trim()).filter(Boolean).map(t=>`<span class="tech-chip">${escapeHtml(t)}</span>`).join('');card.innerHTML=`${cover}<div class="proj-body"><div class="ptag">${escapeHtml(data.tag||'PROJECT')}</div><h4>${escapeHtml(data.title||'')}</h4>${data.sub?`<p class="psub">${escapeHtml(data.sub)}</p>`:''}${data.problem?`<div class="ps-box"><b><span class="tag-icon">✦</span>เริ่มต้นจากอะไร</b>${escapeHtml(data.problem)}</div>`:''}${data.solution?`<div class="ps-box"><b><span class="tag-icon">→</span>ลงมือทำยังไง</b>${escapeHtml(data.solution)}</div>`:''}${tech?`<div class="proj-techs">${tech}</div>`:''}<div class="proj-footer">🔒 ผลงานส่วนตัว / เผยแพร่เพื่อการศึกษา</div><div class="proj-admin-actions"><button type="button" class="edit-project">แก้ไข</button><button type="button" class="delete-project">ลบ</button></div></div>`;card.querySelector('.edit-project').addEventListener('click',()=>requireUnlock(()=>openProjectModal(data.id)));card.querySelector('.delete-project').addEventListener('click',()=>requireUnlock(()=>deleteProject(data.id)));return card;}
-function renderProjects(){grid.querySelectorAll('.proj-card[data-project-id]').forEach(el=>el.remove());projects.forEach(p=>grid.insertBefore(buildCard(p),openBtn));}
-function openProjectModal(id=null){form.reset();document.getElementById('pId').value='';if(id){const d=projects.find(p=>p.id===id);if(!d)return;document.getElementById('pId').value=d.id;document.getElementById('pTag').value=d.tag||'';document.getElementById('pTitle').value=d.title||'';document.getElementById('pSub').value=d.sub||'';document.getElementById('pProblem').value=d.problem||'';document.getElementById('pSolution').value=d.solution||'';document.getElementById('pTech').value=d.tech||'';overlay.querySelector('h3').textContent='แก้ไขผลงาน';overlay.querySelector('.modal-sub').textContent='แก้ไขข้อมูลแล้วกดบันทึก';form.querySelector('button[type=submit]').textContent='บันทึกการแก้ไข';}else{overlay.querySelector('h3').textContent='เพิ่มผลงานใหม่';overlay.querySelector('.modal-sub').textContent='กรอกข้อมูลโปรเจกต์ของคุณ แล้วการ์ดจะถูกสร้างขึ้นทันที';form.querySelector('button[type=submit]').textContent='เพิ่มผลงาน';}overlay.classList.add('open');}
-function closeModal(){overlay.classList.remove('open');form.reset();document.getElementById('pId').value='';}
-function deleteProject(id){const p=projects.find(x=>x.id===id);if(!p)return;if(confirm(`ต้องการลบผลงาน "${p.title}" ใช่หรือไม่?`)){projects=projects.filter(x=>x.id!==id);saveProjects();renderProjects();}}
-openBtn.addEventListener('click',()=>requireUnlock(()=>openProjectModal())); openBtn.addEventListener('keypress',e=>{if(e.key==='Enter')requireUnlock(()=>openProjectModal());}); closeBtn.addEventListener('click',closeModal); cancelBtn.addEventListener('click',closeModal); overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
-form.addEventListener('submit',e=>{e.preventDefault();const id=document.getElementById('pId').value||null;const existing=id?projects.find(p=>p.id===id):null;const data={id:id||((crypto&&crypto.randomUUID)?crypto.randomUUID():String(Date.now())),tag:document.getElementById('pTag').value.trim(),title:document.getElementById('pTitle').value.trim(),sub:document.getElementById('pSub').value.trim(),problem:document.getElementById('pProblem').value.trim(),solution:document.getElementById('pSolution').value.trim(),tech:document.getElementById('pTech').value.trim(),coverSrc:existing?.coverSrc||null};if(!data.title)return;const commit=()=>{if(id)projects=projects.map(p=>p.id===id?data:p);else projects.push(data);saveProjects();renderProjects();closeModal();};const file=coverInput.files[0];if(file){const r=new FileReader();r.onload=ev=>{data.coverSrc=ev.target.result;commit();};r.readAsDataURL(file);}else commit();});
-loadProjects();renderProjects();
+
+pwForm.addEventListener('submit', e => {
+
+  e.preventDefault();
+
+  if(pwInput.value === EDIT_PASSWORD){
+
+    enableOwnerMode();
+
+    pwOverlay.classList.remove('open');
+
+    const action = pendingAction;
+
+    pendingAction = null;
+
+    if(typeof action === 'function'){
+      action();
+    }
+
+  }else{
+
+    pwError.style.display = 'block';
+
+    pwInput.value = '';
+
+    pwInput.focus();
+  }
+
+});
+
+
+function requireUnlock(action){
+
+  if(isUnlocked()){
+    action();
+  }else{
+    openPwModal(action);
+  }
+
+}
+
+
+/* =========================
+   HIDDEN OWNER ACCESS
+   คลิกชื่อ 5 ครั้ง
+========================= */
+
+function enableOwnerMode(){
+
+  document.body.classList.add('owner-mode');
+
+}
+
+function disableOwnerMode(){
+
+  document.body.classList.remove('owner-mode');
+
+}
+
+
+const ownerTrigger = document.querySelector('.nav-name');
+
+let ownerClickCount = 0;
+let ownerClickTimer = null;
+
+
+if(ownerTrigger){
+
+  ownerTrigger.addEventListener('click', () => {
+
+    ownerClickCount++;
+
+    clearTimeout(ownerClickTimer);
+
+    ownerClickTimer = setTimeout(() => {
+      ownerClickCount = 0;
+    },3000);
+
+
+    if(ownerClickCount >= 5){
+
+      ownerClickCount = 0;
+
+      clearTimeout(ownerClickTimer);
+
+
+      if(document.body.classList.contains('owner-mode')){
+
+        disableOwnerMode();
+
+      }else{
+
+        openPwModal(() => enableOwnerMode());
+
+      }
+    }
+
+  });
+
+}
+
+
+/* กด ESC เพื่อออกจาก Owner Mode */
+
+document.addEventListener('keydown', e => {
+
+  if(
+    e.key === 'Escape' &&
+    document.body.classList.contains('owner-mode')
+  ){
+
+    if(
+      !overlay.classList.contains('open') &&
+      !pwOverlay.classList.contains('open')
+    ){
+
+      disableOwnerMode();
+
+    }
+
+  }
+
+});
+
+
+/* =========================
+   PROJECT SYSTEM
+========================= */
+
+function escapeHtml(str = ''){
+
+  const div = document.createElement('div');
+
+  div.textContent = str;
+
+  return div.innerHTML;
+}
+
+
+/* โหลดโปรเจกต์ */
+
+function loadProjects(){
+
+  try{
+
+    projects = JSON.parse(
+      localStorage.getItem(STORAGE_KEY) || '[]'
+    );
+
+    if(!Array.isArray(projects)){
+      projects = [];
+    }
+
+  }catch{
+
+    projects = [];
+
+  }
+
+}
+
+
+/* บันทึกโปรเจกต์ */
+
+function saveProjects(){
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(projects)
+  );
+
+}
+
+
+/* =========================
+   สร้าง Project Card
+========================= */
+
+function buildCard(data){
+
+  const card = document.createElement('div');
+
+  card.className = 'proj-card';
+
+  card.dataset.projectId = data.id;
+
+
+  /* ---------- รูปปก ---------- */
+
+  let cover;
+
+
+  if(data.coverSrc){
+
+    const image = `
+      <img
+        class="proj-cover"
+        src="${data.coverSrc}"
+        alt="${escapeHtml(data.title || 'ปกโปรเจกต์')}">
+    `;
+
+
+    /* มี Link */
+
+    if(data.link){
+
+      cover = `
+        <a
+          href="${escapeHtml(data.link)}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-cover-link"
+          title="เปิดดูผลงาน">
+
+          ${image}
+
+        </a>
+      `;
+
+    }
+
+    /* ไม่มี Link */
+
+    else{
+
+      cover = image;
+
+    }
+
+  }
+
+  /* ไม่มีรูป */
+
+  else{
+
+    cover = `
+      <div class="proj-cover placeholder">
+        ไม่มีรูปปก
+      </div>
+    `;
+
+  }
+
+
+  /* ---------- Technology ---------- */
+
+  const tech = (data.tech || '')
+
+    .split(',')
+
+    .map(t => t.trim())
+
+    .filter(Boolean)
+
+    .map(t => `
+      <span class="tech-chip">
+        ${escapeHtml(t)}
+      </span>
+    `)
+
+    .join('');
+
+
+  /* ---------- Card HTML ---------- */
+
+  card.innerHTML = `
+
+    ${cover}
+
+    <div class="proj-body">
+
+      <div class="ptag">
+        ${escapeHtml(data.tag || 'PROJECT')}
+      </div>
+
+      <h4>
+        ${escapeHtml(data.title || '')}
+      </h4>
+
+
+      ${
+        data.sub
+        ?
+        `
+        <p class="psub">
+          ${escapeHtml(data.sub)}
+        </p>
+        `
+        :
+        ''
+      }
+
+
+      ${
+        data.problem
+        ?
+        `
+        <div class="ps-box">
+
+          <b>
+            <span class="tag-icon">✦</span>
+            เริ่มต้นจากอะไร
+          </b>
+
+          ${escapeHtml(data.problem)}
+
+        </div>
+        `
+        :
+        ''
+      }
+
+
+      ${
+        data.solution
+        ?
+        `
+        <div class="ps-box">
+
+          <b>
+            <span class="tag-icon">→</span>
+            ลงมือทำยังไง
+          </b>
+
+          ${escapeHtml(data.solution)}
+
+        </div>
+        `
+        :
+        ''
+      }
+
+
+      ${
+        tech
+        ?
+        `
+        <div class="proj-techs">
+          ${tech}
+        </div>
+        `
+        :
+        ''
+      }
+
+
+      ${
+        data.link
+        ?
+        `
+        <div class="project-link-text">
+          คลิกที่รูปเพื่อดูผลงาน ↗
+        </div>
+        `
+        :
+        ''
+      }
+
+
+      <div class="proj-footer">
+        โปรเจกต์เพื่อการศึกษา
+      </div>
+
+
+      <div class="proj-admin-actions">
+
+        <button
+          type="button"
+          class="edit-project">
+          แก้ไข
+        </button>
+
+        <button
+          type="button"
+          class="delete-project">
+          ลบ
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  /* ปุ่มแก้ไข */
+
+  card
+    .querySelector('.edit-project')
+    .addEventListener('click', () => {
+
+      requireUnlock(
+        () => openProjectModal(data.id)
+      );
+
+    });
+
+
+  /* ปุ่มลบ */
+
+  card
+    .querySelector('.delete-project')
+    .addEventListener('click', () => {
+
+      requireUnlock(
+        () => deleteProject(data.id)
+      );
+
+    });
+
+
+  return card;
+
+}
+
+
+/* =========================
+   แสดงโปรเจกต์
+========================= */
+
+function renderProjects(){
+
+  grid
+    .querySelectorAll(
+      '.proj-card[data-project-id]'
+    )
+    .forEach(el => el.remove());
+
+
+  projects.forEach(project => {
+
+    grid.insertBefore(
+      buildCard(project),
+      openBtn
+    );
+
+  });
+
+}
+
+
+/* =========================
+   เปิดเพิ่ม / แก้ไข
+========================= */
+
+function openProjectModal(id = null){
+
+  form.reset();
+
+  document.getElementById('pId').value = '';
+
+
+  /* ---------- EDIT ---------- */
+
+  if(id){
+
+    const data = projects.find(
+      project => project.id === id
+    );
+
+
+    if(!data){
+      return;
+    }
+
+
+    document.getElementById('pId').value =
+      data.id;
+
+
+    document.getElementById('pTag').value =
+      data.tag || '';
+
+
+    document.getElementById('pTitle').value =
+      data.title || '';
+
+
+    document.getElementById('pSub').value =
+      data.sub || '';
+
+
+    document.getElementById('pProblem').value =
+      data.problem || '';
+
+
+    document.getElementById('pSolution').value =
+      data.solution || '';
+
+
+    document.getElementById('pTech').value =
+      data.tech || '';
+
+
+    /* โหลด Link เดิม */
+
+    document.getElementById('pLink').value =
+      data.link || '';
+
+
+    overlay
+      .querySelector('h3')
+      .textContent = 'แก้ไขผลงาน';
+
+
+    overlay
+      .querySelector('.modal-sub')
+      .textContent =
+      'แก้ไขข้อมูลแล้วกดบันทึก';
+
+
+    form
+      .querySelector('button[type="submit"]')
+      .textContent =
+      'บันทึกการแก้ไข';
+
+  }
+
+  /* ---------- ADD ---------- */
+
+  else{
+
+    overlay
+      .querySelector('h3')
+      .textContent =
+      'เพิ่มผลงานใหม่';
+
+
+    overlay
+      .querySelector('.modal-sub')
+      .textContent =
+      'กรอกข้อมูลโปรเจกต์ของคุณ แล้วการ์ดจะถูกสร้างขึ้นทันที';
+
+
+    form
+      .querySelector('button[type="submit"]')
+      .textContent =
+      'เพิ่มผลงาน';
+
+  }
+
+
+  overlay.classList.add('open');
+
+}
+
+
+/* =========================
+   ปิด Modal
+========================= */
+
+function closeModal(){
+
+  overlay.classList.remove('open');
+
+  form.reset();
+
+  document.getElementById('pId').value = '';
+
+}
+
+
+/* =========================
+   ลบ Project
+========================= */
+
+function deleteProject(id){
+
+  const project = projects.find(
+    p => p.id === id
+  );
+
+
+  if(!project){
+    return;
+  }
+
+
+  if(
+    confirm(
+      `ต้องการลบผลงาน "${project.title}" ใช่หรือไม่?`
+    )
+  ){
+
+    projects = projects.filter(
+      p => p.id !== id
+    );
+
+    saveProjects();
+
+    renderProjects();
+
+  }
+
+}
+
+
+/* =========================
+   ปุ่มเพิ่ม
+========================= */
+
+openBtn.addEventListener('click', () => {
+
+  requireUnlock(
+    () => openProjectModal()
+  );
+
+});
+
+
+openBtn.addEventListener('keypress', e => {
+
+  if(e.key === 'Enter'){
+
+    requireUnlock(
+      () => openProjectModal()
+    );
+
+  }
+
+});
+
+
+closeBtn.addEventListener(
+  'click',
+  closeModal
+);
+
+
+cancelBtn.addEventListener(
+  'click',
+  closeModal
+);
+
+
+overlay.addEventListener('click', e => {
+
+  if(e.target === overlay){
+    closeModal();
+  }
+
+});
+
+
+/* =========================
+   SAVE PROJECT
+========================= */
+
+form.addEventListener('submit', e => {
+
+  e.preventDefault();
+
+
+  const id =
+    document.getElementById('pId').value || null;
+
+
+  const existing = id
+    ? projects.find(p => p.id === id)
+    : null;
+
+
+  const data = {
+
+    id:
+      id ||
+      (
+        window.crypto &&
+        crypto.randomUUID
+          ? crypto.randomUUID()
+          : String(Date.now())
+      ),
+
+    tag:
+      document
+        .getElementById('pTag')
+        .value
+        .trim(),
+
+    title:
+      document
+        .getElementById('pTitle')
+        .value
+        .trim(),
+
+    sub:
+      document
+        .getElementById('pSub')
+        .value
+        .trim(),
+
+    problem:
+      document
+        .getElementById('pProblem')
+        .value
+        .trim(),
+
+    solution:
+      document
+        .getElementById('pSolution')
+        .value
+        .trim(),
+
+    tech:
+      document
+        .getElementById('pTech')
+        .value
+        .trim(),
+
+    /* Link ไม่บังคับ */
+
+    link:
+      document
+        .getElementById('pLink')
+        .value
+        .trim(),
+
+    /* ใช้รูปเดิมถ้าแก้ไข */
+
+    coverSrc:
+      existing?.coverSrc || null
+
+  };
+
+
+  if(!data.title){
+    return;
+  }
+
+
+  function commit(){
+
+    if(id){
+
+      projects = projects.map(
+        project =>
+          project.id === id
+            ? data
+            : project
+      );
+
+    }else{
+
+      projects.push(data);
+
+    }
+
+
+    saveProjects();
+
+    renderProjects();
+
+    closeModal();
+
+  }
+
+
+  /* มีการเลือกรูปใหม่ */
+
+  const file = coverInput.files[0];
+
+
+  if(file){
+
+    const reader = new FileReader();
+
+
+    reader.onload = event => {
+
+      data.coverSrc =
+        event.target.result;
+
+      commit();
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+  }
+
+  /* ไม่ได้เปลี่ยนรูป */
+
+  else{
+
+    commit();
+
+  }
+
+});
+
+
+/* =========================
+   START
+========================= */
+
+loadProjects();
+
+renderProjects();
+
 </script>
-
-
 <div class="owner-badge" id="ownerBadge" title="กด Escape เพื่อออกจากโหมดแก้ไข">
   OWNER MODE
 </div>
