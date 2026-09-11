@@ -423,6 +423,96 @@
   color:var(--teal);
   font-size:.76rem;
 }
+/* ---------- WORK EXPERIENCE ---------- */
+.experience {
+  background: var(--paper);
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.experience-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--teal);
+  border-radius: 12px;
+  padding: 26px 28px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+}
+
+.experience-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.experience-top h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--navy);
+  line-height: 1.5;
+}
+
+.experience-place {
+  margin: 6px 0 0;
+  color: var(--teal-deep);
+  font-size: .88rem;
+  font-weight: 600;
+}
+
+.experience-date {
+  color: var(--ink-soft);
+  font-size: .84rem;
+  white-space: nowrap;
+}
+
+.experience-desc {
+  margin: 18px 0 0;
+  color: var(--ink-soft);
+  font-size: .92rem;
+  line-height: 1.8;
+}
+
+.experience-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.experience-skills span {
+  padding: 5px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--teal-pale);
+  color: var(--teal-deep);
+  font-size: .75rem;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .experience-card {
+    padding: 22px 20px;
+  }
+
+  .experience-top {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .experience-date {
+    white-space: normal;
+  }
+}
 </style>
 </head>
 <body>
@@ -633,11 +723,6 @@
       <span class="tech-chip">PyThaiNLP</span>
       <span class="tech-chip">Vector Database</span>
     </div>
-
-    <div class="project-link-text">
-      คลิกที่รูปเพื่อดูเว็บไซต์ ↗
-    </div>
-
     <div class="proj-footer">
       โปรเจกต์เพื่อการศึกษา
     </div>
@@ -648,7 +733,17 @@
 
     <!-- PROJECT 2 : SlideMe -->
     <div class="proj-card">
-      <img class="proj-cover" src="picture/slideme.png" alt="SlideMe">
+
+      <a href="https://woradech-dev.github.io/_SlideMe/"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="project-cover-link"
+     title="เปิดดูเว็บไซต์">
+
+    <img class="proj-cover"
+         src="picture//slideme.png"
+         alt="SlideMe">
+    </a>
       <div class="proj-body">
         <div class="ptag">FULL-STACK</div>
         <h4>SlideMe — ระบบเรียกรถสไลด์สำหรับเหตุฉุกเฉินบนท้องถนน</h4>
@@ -662,7 +757,9 @@
 
     <!-- PROJECT 3 : Silky POS -->
     <div class="proj-card">
-      <div class="proj-cover placeholder">SILKY POS<br>Project Cover</div>
+    <img class="proj-cover"
+         src="picture//pos.png"
+         alt="Silky POS">
       <div class="proj-body">
         <div class="ptag">FULL-STACK / POS</div>
         <h4>Silky POS — ระบบจัดการออเดอร์และการขายสำหรับร้านราเม็ง</h4>
@@ -676,7 +773,16 @@
 
     <!-- PROJECT 4 : REF -->
     <div class="proj-card">
-      <div class="proj-cover placeholder">REF<br>Figma Prototype</div>
+           <a href="https://www.figma.com/proto/ExoOgB8LBFU3dwg8R1cXvn/CSI106-REFColor?node-id=225-190&starting-point-node-id=225%3A190"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="project-cover-link"
+     title="เปิดดูเว็บไซต์">
+
+    <img class="proj-cover"
+         src="picture//ref-fashion.png"
+         alt="REF">
+    </a>
       <div class="proj-body">
         <div class="ptag">UI/UX DESIGN</div>
         <h4>REF — ออกแบบต้นแบบแอปพลิเคชันแนะนำสไตล์การแต่งตัว</h4>
@@ -690,7 +796,9 @@
 
     <!-- PROJECT 5 : Trash Space -->
     <div class="proj-card">
-      <div class="proj-cover placeholder">TRASH SPACE<br>JavaScript Game</div>
+    <img class="proj-cover"
+         src="picture//trash-space.png"
+         alt="Trash Space">
       <div class="proj-body">
         <div class="ptag">GAME / JAVASCRIPT</div>
         <h4>Trash Space — เกมฝึกคำนวณเลข 24 ในธีมอวกาศ</h4>
@@ -704,7 +812,16 @@
 
     <!-- PROJECT 6 : SlipScan AI -->
     <div class="proj-card">
-      <div class="proj-cover placeholder">SLIPSCAN AI<br>Automation Workflow</div>
+               <a href="https://line.me/R/ti/p/@883izqyx?oat_content=url&ts=04080719"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="project-cover-link"
+     title="เปิดดูเว็บไซต์">
+
+    <img class="proj-cover"
+         src="picture//slipscan.png"
+         alt="SlipScan AI">
+    </a>
       <div class="proj-body">
         <div class="ptag">AUTOMATION / AI</div>
         <h4>SlipScan AI — ระบบบันทึกและจัดการรายจ่ายอัตโนมัติผ่าน LINE</h4>
@@ -716,26 +833,172 @@
       </div>
     </div>
 
-    <!-- PROJECT 7 : Personal Portfolio -->
-    <div class="proj-card">
-      <a href="https://jittimaspu.github.io/my-resume/" target="_blank" rel="noopener noreferrer" class="project-cover-link" title="เปิดดู Source Code">
-        <div class="proj-cover placeholder">PERSONAL PORTFOLIO<br>Resume Website</div>
-      </a>
-      <div class="proj-body">
-        <div class="ptag">FRONTEND / PORTFOLIO</div>
-        <h4>Personal Portfolio — เว็บไซต์เรซูเม่และรวบรวมผลงานส่วนตัว</h4>
-        <p class="psub">เว็บไซต์ส่วนตัวสำหรับนำเสนอข้อมูล ทักษะ การศึกษา และโปรเจกต์ต่าง ๆ ในรูปแบบ Responsive Portfolio</p>
-        <div class="ps-box"><b><span class="tag-icon">✦</span>ที่มาของโปรเจกต์</b>ต้องการสร้างพื้นที่รวมข้อมูลและผลงานให้อยู่ในเว็บไซต์เดียว เพื่อให้ผู้ที่สนใจสามารถดูทักษะและโปรเจกต์ได้สะดวก</div>
-        <div class="ps-box"><b><span class="tag-icon">→</span>สิ่งที่พัฒนา</b>ออกแบบและพัฒนาเว็บไซต์ด้วย HTML, CSS และ JavaScript โดยจัดโครงสร้างเนื้อหาให้เหมาะกับ Portfolio และรองรับการแสดงผลบนอุปกรณ์หลายขนาด พร้อมเผยแพร่ผ่าน GitHub Pages</div>
-        <div class="proj-techs"><span class="tech-chip">HTML5</span><span class="tech-chip">CSS3</span><span class="tech-chip">JavaScript</span><span class="tech-chip">Responsive Design</span><span class="tech-chip">GitHub Pages</span></div>
-        <div class="project-link-text">คลิกที่รูปเพื่อดู Source Code ↗</div>
-        <div class="proj-footer">โปรเจกต์ส่วนบุคคล</div>
-      </div>
+    <!-- PROJECT 7 : Massage Booking System -->
+<div class="proj-card">
+   <img class="proj-cover"
+         src="picture//massage.png"
+         alt="Massage Booking System">
+  <div class="proj-body">
+
+    <div class="ptag">FULL-STACK / C#</div>
+
+    <h4>
+      Massage Booking System — ระบบจองร้านนวดออนไลน์
+    </h4>
+
+    <p class="psub">
+      เว็บแอปพลิเคชันสำหรับจัดการการจองบริการร้านนวด
+      รองรับทั้งลูกค้า ผู้ดูแลระบบ หมอนวด และเจ้าของร้าน
+      เพื่อช่วยให้ขั้นตอนการจองและจัดการงานภายในร้านเป็นระบบมากขึ้น
+    </p>
+
+    <div class="ps-box">
+      <b>
+        <span class="tag-icon">✦</span>ที่มาของโปรเจกต์
+      </b>
+      ต้องการพัฒนาระบบที่ช่วยให้ลูกค้าสามารถเลือกบริการและจองคิวออนไลน์ได้
+      พร้อมช่วยให้พนักงานและเจ้าของร้านสามารถติดตามการจอง
+      ตารางการทำงาน และข้อมูลรายได้จากระบบเดียว
+    </div>
+
+    <div class="ps-box">
+      <b>
+        <span class="tag-icon">→</span>สิ่งที่พัฒนา
+      </b>
+      พัฒนา Web Application ด้วย C# ASP.NET MVC
+      รองรับระบบสมัครสมาชิกและเข้าสู่ระบบ การเลือกบริการและจองเวลา
+      การป้องกันเวลาจองซ้อน การจัดหมอนวดให้กับรายการจอง
+      ระบบโปรโมชั่น รีวิว และหน้ารายงานรายได้
+      พร้อมแยกการใช้งานตาม Role ของ Customer, Admin, Therapist และ Owner
+    </div>
+
+    <div class="proj-techs">
+      <span class="tech-chip">C#</span>
+      <span class="tech-chip">ASP.NET MVC</span>
+      <span class="tech-chip">Entity Framework</span>
+      <span class="tech-chip">SQL</span>
+      <span class="tech-chip">HTML</span>
+      <span class="tech-chip">CSS</span>
+      <span class="tech-chip">Razor View</span>
+      <span class="tech-chip">MVC Architecture</span>
+    </div>
+
+    <div class="proj-footer">
+      โปรเจกต์เพื่อการศึกษา
     </div>
 
   </div>
-</section>
 
+</div>
+
+  </div>
+</section>
+<!-- WORK EXPERIENCE -->
+<section class="experience" id="experience">
+
+  <div class="section-head">
+    <span class="section-index">04</span>
+    <h2 class="section-title">ประสบการณ์ทำงาน</h2>
+  </div>
+
+  <div class="experience-list">
+
+    <!-- EXPERIENCE 1 : SPU AI Spark -->
+    <div class="experience-card">
+
+      <div class="experience-top">
+        <div>
+          <h3>Teaching Assistant / Event Staff — SPU AI Spark</h3>
+          <p class="experience-place">มหาวิทยาลัยศรีปทุม</p>
+        </div>
+
+        <span class="experience-date">2025 — ปัจจุบัน</span>
+      </div>
+
+      <p class="experience-desc">
+        ทำหน้าที่เป็นผู้ช่วยสอนและสตาฟในกิจกรรมอบรมด้าน AI และ Automation
+        สำหรับนักศึกษาและบุคคลภายนอก โดยช่วยอธิบายการใช้งานเครื่องมือ
+        สนับสนุนผู้เข้าร่วมระหว่าง Workshop และช่วยแก้ปัญหาเบื้องต้น
+        ที่เกี่ยวข้องกับ AI และ n8n Workflow
+      </p>
+
+      <div class="experience-skills">
+        <span>Artificial Intelligence</span>
+        <span>n8n Automation</span>
+        <span>Teaching Assistant</span>
+        <span>Workshop Support</span>
+        <span>Communication</span>
+        <span>Problem Solving</span>
+        <span>Teamwork</span>
+      </div>
+
+    </div>
+
+
+    <!-- EXPERIENCE 2 : การประชุมวิชาการสุขภาพ ครั้งที่ 24 -->
+    <div class="experience-card">
+
+      <div class="experience-top">
+        <div>
+          <h3>Part-time Staff — การประชุมวิชาการสุขภาพ ครั้งที่ 24 (ศจย.)</h3>
+          <p class="experience-place">
+            การประชุมวิชาการสุขภาพ ครั้งที่ 24
+            (CDoH หวาน เค็ม เมา ควัน) — ศจย.
+          </p>
+        </div>
+      </div>
+
+      <p class="experience-desc">
+        รับผิดชอบงาน IT Support บริเวณจุดลงทะเบียน
+        ช่วยดูแลและแก้ไขปัญหาด้านการใช้งานระบบเบื้องต้น
+        ประสานงานกับทีม และดูแลงานที่ได้รับมอบหมาย
+        ทำให้ได้พัฒนาทักษะด้านการสื่อสาร การแก้ปัญหาเฉพาะหน้า
+        การบริหารเวลา และการทำงานร่วมกับผู้อื่น
+      </p>
+
+      <div class="experience-skills">
+        <span>IT Support</span>
+        <span>Customer Service</span>
+        <span>Communication</span>
+        <span>Teamwork</span>
+        <span>Problem Solving</span>
+        <span>Time Management</span>
+      </div>
+
+    </div>
+
+
+    <!-- EXPERIENCE 3 : Best of The Best -->
+    <div class="experience-card">
+
+      <div class="experience-top">
+        <div>
+          <h3>Part-time Staff — Best of The Best (อย.)</h3>
+          <p class="experience-place">
+            งานมอบรางวัลเครือข่ายโดดเด่น
+          </p>
+        </div>
+      </div>
+
+      <p class="experience-desc">
+        รับผิดชอบดูแลจุดลงทะเบียนสำหรับผู้สื่อข่าว
+        จัดเตรียมและดูแลเอกสาร รวมถึงงานอื่น ๆ ที่ได้รับมอบหมาย
+        ทำให้ได้พัฒนาทักษะด้านการสื่อสาร
+        การแก้ปัญหาเฉพาะหน้า และการบริหารเวลา
+      </p>
+
+      <div class="experience-skills">
+        <span>Customer Service</span>
+        <span>Communication</span>
+        <span>Problem Solving</span>
+        <span>Time Management</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 <!-- EDUCATION -->
 <section class="edu" id="education">
   <div class="section-head">
